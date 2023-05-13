@@ -1,765 +1,384 @@
-<!DOCTYPE html>
-<!-- saved from url=(0091)https://xi-xu-zg.github.io/Getting-Started-with-Visual-Studio-Code-(VS%20Code)-%2D-C++.html -->
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description" content="">
 
-    <title>Visual Studio Code (VS Code) – C++ 入门</title>
+    <title>Xi Xu's Personal Official Home Page</title>
 
-    <link rel="Shortcut Icon" href="https://foruda.gitee.comp/1683824643207067322/b404d8ca_11871931.png"
-        type="image/x-icon">
+    <link rel="Shortcut Icon" href="./images/icon.png" type="image/x-icon">
 
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/css2" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
 
-    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/magnific-popup.css" rel="stylesheet">
-
-    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/templatemo-first-portfolio-style.css" rel="stylesheet">
-
-    <style>
-        .vscode-dark img[src$=\#gh-light-mode-only],
-        .vscode-light img[src$=\#gh-dark-mode-only] {
-            display: none;
-        }
-
-        /* From extension cnblogs.vscode-cnb */
-        :root {
-            --highlighted-line-bg: #d1e3c9;
-            --highlighted-line-bg-dark: #264b33
-        }
-
-        .prismjs-engine pre[class*=language-],
-        .prismjs-engine pre[class*=language-].line-numbers {
-            white-space: normal
-        }
-
-        .prismjs-engine pre[class*=language-] code,
-        .prismjs-engine pre[class*=language-].line-numbers code {
-            display: block;
-            white-space: pre
-        }
-
-        .hljs-engine pre[class*=language-],
-        .hljs-engine pre[class*=language-].line-numbers {
-            white-space: normal
-        }
-
-        .hljs-engine pre[class*=language-] code,
-        .hljs-engine pre[class*=language-].line-numbers code {
-            white-space: pre
-        }
-
-        .hljs-engine .hljs .hljs-ln-numbers {
-            color: #bfbfbf;
-            padding: 0 14px
-        }
-
-        pre.hljs-lines-highlighted {
-            --spacing-left: 14px;
-            --spacing-right: 14px
-        }
-
-        pre.hljs-lines-highlighted :after,
-        pre.hljs-lines-highlighted :before {
-            box-sizing: border-box
-        }
-
-        pre.hljs-lines-highlighted,
-        pre.hljs-lines-highlighted[class*=language-] {
-            padding-left: 0;
-            padding-right: 0
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight],
-        pre.hljs-lines-highlighted code[data-lines-highlight] {
-            padding-left: var(--spacing-left);
-            padding-right: var(--spacing-right);
-            position: relative
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight].hljs-line-numbers,
-        pre.hljs-lines-highlighted code[data-lines-highlight].hljs-line-numbers {
-            padding-left: 0
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight][data-dark-theme],
-        pre.hljs-lines-highlighted code[data-lines-highlight][data-dark-theme] {
-            --highlighted-line-bg: var(--highlighted-line-bg-dark)
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln,
-        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln {
-            margin: 0;
-            width: 100%
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tbody,
-        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tbody {
-            width: 100%
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr:before,
-        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr:before {
-            content: " ";
-            position: absolute
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr:after,
-        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr:after {
-            content: " ";
-            display: block;
-            margin-right: calc(var(--spacing-right)*-1)
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line,
-        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line {
-            background: var(--highlighted-line-bg);
-            position: relative
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line td.hljs-ln-line.hljs-ln-numbers,
-        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line td.hljs-ln-line.hljs-ln-numbers {
-            background: var(--highlighted-line-bg)
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line:before,
-        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line:before {
-            background: var(--highlighted-line-bg);
-            content: "+";
-            display: inline-block;
-            left: 4px;
-            position: absolute;
-            z-index: 1
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line:after,
-        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line:after {
-            background: var(--highlighted-line-bg)
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-numbers,
-        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-numbers {
-            padding-left: calc(var(--spacing-left) + 4px);
-            padding-right: calc(var(--spacing-left) + 4px);
-            width: 1px
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-code,
-        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-code {
-            width: 100%
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper,
-        pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper {
-            display: inline-block;
-            min-width: 100%
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line,
-        pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line {
-            background: var(--highlighted-line-bg);
-            display: inline-block;
-            min-width: 100%;
-            position: relative
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:before,
-        pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:before {
-            background: var(--highlighted-line-bg);
-            bottom: 0;
-            content: "+";
-            left: calc(var(--spacing-left)*-1);
-            padding-left: calc((var(--spacing-left) - .5px)/3);
-            position: absolute;
-            top: 0;
-            width: var(--spacing-left)
-        }
-
-        pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:after,
-        pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:after {
-            background: var(--highlighted-line-bg);
-            bottom: 0;
-            content: "";
-            left: calc(var(--spacing-left)*-1);
-            left: auto;
-            padding-left: 0;
-            position: absolute;
-            right: calc(var(--spacing-right)*-1);
-            top: 0;
-            width: var(--spacing-left)
-        }
-
-        pre.prismjs-lines-highlighted {
-            --spacing-right: 1em
-        }
-
-        pre.prismjs-lines-highlighted :after,
-        pre.prismjs-lines-highlighted :before {
-            box-sizing: border-box
-        }
-
-        pre.prismjs-lines-highlighted,
-        pre.prismjs-lines-highlighted.line-numbers,
-        pre.prismjs-lines-highlighted[class*=language-] {
-            padding-left: var(--spacing-left);
-            padding-right: var(--spacing-right)
-        }
-
-        pre.prismjs-lines-highlighted[class*=language-]:not(.line-numbers) {
-            --spacing-left: 1em
-        }
-
-        pre.prismjs-lines-highlighted[class*=language-].line-numbers {
-            --spacing-left: 3.8em
-        }
-
-        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] {
-            display: inline-block;
-            min-width: 100%;
-            position: relative
-        }
-
-        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight][data-dark-theme] {
-            --highlighted-line-bg: var(--highlighted-line-bg-dark)
-        }
-
-        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line {
-            background: var(--highlighted-line-bg);
-            display: inline-block;
-            min-width: 100%;
-            position: relative
-        }
-
-        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:after,
-        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:before {
-            background: var(--highlighted-line-bg);
-            content: " ";
-            display: inline-block;
-            position: absolute
-        }
-
-        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:before {
-            content: "+";
-            left: calc(var(--spacing-left)*-1);
-            padding-left: 4px;
-            width: var(--spacing-left)
-        }
-
-        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:after {
-            position: absolute;
-            right: calc(var(--spacing-right)*-1);
-            width: var(--spacing-right)
-        }
-
-        pre.prismjs-lines-highlighted .line-numbers-rows span {
-            padding-right: 0
-        }
-    </style>
-    <link rel="stylesheet" href="./Visual Studio Code (VS Code) – C++ 入门_files/katex.min.css">
-    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/katex-copytex.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./Visual Studio Code (VS Code) – C++ 入门_files/markdown.css">
-    <link rel="stylesheet" href="./Visual Studio Code (VS Code) – C++ 入门_files/highlight.css">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-    </style>
-    <style>
-        .task-list-item {
-            list-style-type: none;
-        }
-
-        .task-list-item-checkbox {
-            margin-left: -20px;
-            vertical-align: middle;
-            pointer-events: none;
-        }
-    </style>
-    <style id="highlightedLineBackground">
-        :root {
-            --highlighted-line-bg: var(--vscode-diffEditor-insertedTextBackground)
-        }
-    </style>
+    <link href="css/templatemo-first-portfolio-style.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <h2><a href="https://xi-xu-zg.github.io/"><strong>Xi Xu's Personal Official Home Page</strong></a></h2>
+    <section class="preloader">
+        <div class="spinner">
+            <span class="spinner-rotate"></span>
+        </div>
+    </section>
 
-    <a href="https://xi-xu-zg.github.io/" class="navbar mx-auto mx-lg-0">Go back to the Xi Xu's Personal Official Home
-        Page</a>
-    <div class="services-thumb">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
 
-        <h2><strong>Visual Studio Code (VS Code) – C++ 入门</strong></h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <blockquote>
-            <p><strong>—— 基于 Visual Studio Code 官方文档的全面的、具体的入门级教程</strong></p>
-        </blockquote>
+            <a href="index.html" class="navbar-brand mx-auto mx-lg-0">Xi Xu's Personal Official Home Page</a>
 
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/dd17e9a7ed214a0bb137bd01e022e0b5.jpg" alt="">
-        </p>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-5">
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_1">Home</a>
+                    </li>
 
-        <p>建议在学习本教程的同时观看<a href="https://www.bilibili.com/video/BV1X84y187HS/">本教程配套视频</a>。</p>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_2">About</a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_3">Blogs</a>
+                    </li>
 
-        <p>在本教程中，您将为使用 <a href="https://github.com/microsoft/vscode-docs/issues/5812">UCRT64</a>
-            中的 <a href="https://baike.baidu.com/item/gcc/17570">GCC</a> C++ 编译器（g++）和 GDB 调试器配置
-            Visual Studio Code 来创建在
-            Windows 上运行的程序。</p>
-        <p>配置 VS Code 后，您将在 VS Code 中编译和调试一个简单的 Hello World 程序。本教程不会教您有关 GCC，GDB，UCRT64 或 C++
-            语言的知识。对于这些主题，网络上有许多很好的资源。</p>
-        <p><strong><em>本教程内容较多，但若严格按照本教程操作，就能轻松实现 Visual Studio Code – C++
-                    入门，所以请耐心完整地学习本教程。</em></strong>
-            如果遇到任何问题，在查询网络后无效的情况下可以加入 <a href="https://pd.qq.com/s/g41c7apep">QQ 频道 VS Code</a>。
-        </p>
-        <h2 id="先决条件"><strong>先决条件</strong></h2>
-        <p>若要成功完成本教程，必须执行以下步骤：</p>
-        <ol>
-            <li>安装 <a href="https://code.visualstudio.com/docs/?dv=win64">Visual Studio
-                    Code</a>（运行刚下载的安装程序，选择
-                <strong>我同意此协议</strong> 后一直选择 <strong>下一步</strong> ，在 <strong>选择附加任务</strong>
-                页面选择所有选项，最后选择
-                <strong>安装</strong> ）。
-            </li>
-        </ol>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/72fffa63d7974016ac5b857d0599ae38.png" alt="">
-        </p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/a1a98fa256554022a10fc44897675f31.png" alt="">
-        </p>
-        <blockquote>
-            <p>提示：安装程序会将 Visual Studio Code 添加到您的 <em>PATH</em>，因此您可以从终端键入 <strong>code
-                    .</strong> 以在该文件夹上打开 VS
-                Code。安装后，您需要重新启动终端才能使对环境变量的更改生效。</p>
-        </blockquote>
-        <ol start="2">
-            <li>安装扩展：<a
-                    href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans">Chinese
-                    (Simplified) Language Pack for Visual Studio Code</a> 和 <a
-                    href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a>。
-            </li>
-        </ol>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/775a1adfeb08449d80b23df1025e3360.png" alt="">
-        </p>
-        <ol start="3">
-            <li>通过 MSYS2 获取最新版本的 UCRT64，它提供了 GCC，UCRT64 和其他有用的 C++ 工具和库的最新本地版本。按照 <a href="https://www.msys2.org/">MSYS2
-                    官网</a>中的 <strong>Installation</strong> 说明安装 MSYS2（如果
-                <strong>installer</strong> 下载速度较慢或无法下载，可以通过<a
-                    href="https://pan.baidu.com/s/1aYwxejgd_ebWg88eXkh44g?pwd=xixu">百度网盘</a>、<a
-                    href="https://www.aliyundrive.com/s/SJWCpzLmBnc">阿里云盘</a>、<a
-                    href="https://share.weiyun.com/4XWifV09">腾讯微云</a>或<a
-                    href="https://xi-xu.lanzoue.com/ioQcF0kqbm3i">蓝奏云</a>（密码：i5ec）下载；由于更新数据库，安装
-                MSYS2 时间会较长）。
-            </li>
-        </ol>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/9ac53d36971c4de0a86fdd62ef5fadf8.png" alt="">
-        </p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/a99ccef30e4c448d814a4ff31c897b09.png" alt="">
-        </p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/67cdd7e8fd4b4d0cb0ac0284342689b8.png" alt="">
-        </p>
-        <ol start="4">
-            <li>安装 UCRT64 工具链。当 MSYS2 已经准备就绪，UCRT64 环境的终端将启动，依次键入，接受默认值以安装工具链组中的所有成员：</li>
-        </ol>
-        <pre><code class="language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">pacman -S tar make</span>
-<span class="hljs-meta prompt_">$ </span><span class="language-bash">pacman -S mingw-w64-ucrt-x86_64-toolchain</span>
-<span class="hljs-meta prompt_">$ </span><span class="language-bash">pacman -Syu</span>
-</code></pre>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/7d64b392304d40e399ff4cc3f3d9d814.png" alt="">
-        </p>
-        <ol start="5">
-            <li>使用以下步骤将 UCRT64 文件夹的路径添加到 Windows 环境变量：</li>
-        </ol>
-        <ul>
-            <li>
-                <p>在 Windows 搜索栏中，键入 <strong>设置</strong> 以打开 Windows 设置。</p>
-            </li>
-            <li>
-                <p>搜索 <strong>编辑帐户的环境变量</strong> 。</p>
-            </li>
-        </ul>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/9fd894380b6f473cbfd70de5dcfb963f.png" alt="">
-        </p>
-        <ul>
-            <li>在用户变量中选择变量 <em>Path</em> ，然后选择 <strong>编辑</strong> 。</li>
-        </ul>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/64dc6daaf25541a298742d0eee6876dd.png" alt="">
-        </p>
-        <ul>
-            <li>选择 <strong>新建</strong> 并将 UCRT64 目标文件夹路径添加到系统路径。确切的路径取决于您安装的 UCRT64
-                安装位置。如果您使用默认路径安装 UCRT64，请将其添加到路径：
-                <em>C:\msys64\ucrt64\bin</em> 。选择 <strong>确定</strong> 以保存更新的路径。
-            </li>
-        </ul>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/2ca6f6af1c8f43c9bc1d6820ab61a288.png" alt="">
-        </p>
-        <ol start="6">
-            <li>若要检查 UCRT64 工具是否已正确安装且可用，请打开新的终端并依次键入：</li>
-        </ol>
-        <pre><code class="language-bat">gcc --version
-g++ --version
-gdb --version
-</code></pre>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/82b41b6f5ce9408bbcf5aeee3a08c714.png" alt="">
-        </p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/9bea21d5d572405b8c225f121bafcf38.png" alt="">
-        </p>
-        <h2 id="创建-hello-world"><strong>创建 Hello World</strong></h2>
-        <p>在磁盘（可以是任意位置）中创建一个名为 <em>code</em> （可以是其他命名）的空文件夹，您可以在其中放置所有 VS Code 代码。在 VS Code
-            中打开该文件夹（可以右键单击该文件夹，选择 <strong>通过
-                Code 打开</strong> ），该文件夹将成为您的工作区。通过选择 <strong>是，我信任此作者信任文件夹并启用所有功能</strong>
-            接受工作区信任对话框，因为这是您创建的文件夹。</p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/7b749e67074b4bc293f9dc64271aee5f.png" alt="">
-        </p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/513b67196f37453a982da4b751b5ad4c.png" alt="">
-        </p>
-        <p>在学习本教程时，你将看到在工作区中的被 VS Code 创建的文件夹 <em>.vscode</em> 和其中的两个文件：</p>
-        <p><em>tasks.json</em> （编译配置）</p>
-        <p><em>launch.json</em> （调试器配置）</p>
-        <h3 id="添加源代码文件"><strong>添加源代码文件</strong></h3>
-        <p>在 <strong>资源管理器</strong> 标题栏中，选择 <strong>新建文件</strong> 按钮并将文件命名为
-            <em>helloworld.cpp</em> 。
-        </p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/8497b660379d44c79257c9efc3a568e2.png" alt="">
-        </p>
-        <h3 id="添加-helloworld-源代码"><strong>添加 helloworld 源代码</strong></h3>
-        <p>现在复制此源代码粘贴到该文件：</p>
-        <pre><code class="language-cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_4">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
+    <main>
 
-<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
-</span>{
-    cout &lt;&lt; <span class="hljs-string">"Hello, world!"</span> &lt;&lt; endl;
+        <section class="hero d-flex justify-content-center align-items-center" id="section_1">
+            <div class="container">
+                <div class="row">
 
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
-</code></pre>
-        <p>现在保存文件。</p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/6c7f0840c5d14d718b00ad7b0a4b28b2.png" alt="">
-        </p>
-        <p>您还可以启用自动保存以自动保存文件更改，方法可以参考后文 <strong>更多</strong> 中的 <strong>3</strong> 。</p>
-        <p>使用最左侧的活动栏可以打开不同的视图，例如 <strong>搜索</strong> 、 <strong>运行和调试</strong> 和
-            <strong>扩展</strong> 。本教程稍后将查看
-            <strong>运行和调试</strong> 视图。可以在 VS Code <a
-                href="https://code.visualstudio.com/docs/getstarted/userinterface">用户界面文档</a>中找到有关其他视图的详细信息。
-        </p>
-        <blockquote>
-            <p>注意：保存或打开 C++ 文件时，你可能会看到来自 C/C++ 扩展的有关预览体验成员版本可用性的通知，该通知可用于测试新功能和修补程序。您可以通过选择
-                <strong>清除所有通知</strong> 来忽略此通知。
-            </p>
-        </blockquote>
-        <h3 id="运行-helloworldcpp"><strong>运行 helloworld.cpp</strong></h3>
-        <p>请记住，C++ 扩展使用计算机上安装的 C++ 编译器来生成程序。在尝试在 VS Code 中运行和调试 <em>helloworld.cpp</em>
-            之前，请确保已安装 C++ 编译器（完成前文
-            <strong>先决条件</strong> 中的 <strong>3</strong> ~ <strong>5</strong> ）。
-        </p>
-        <p>打开 <em>helloworld.cpp</em> ，选择编辑器右上角的 <strong>开始</strong> 按钮。</p>
-        <p>选择 <strong>C/C++: g++.exe 生成和调试活动文件</strong> 。</p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/cbba975a16724e3b904bdf922bb821e4.png" alt="">
-        </p>
-        <p>只有在第一次运行 <em>helloworld.cpp</em> 时才会要求您选择编译器。此编译器将在文件 <em>tasks.json</em> 中设置为默认编译器。
-        </p>
-        <p>编译成功后，程序的输出将显示在集成终端中。</p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/8be2edd148ec41d38efc0aa0a1f1e83b.png" alt="">
-        </p>
-        <p>首次运行程序时 <em>tasks.json</em> 会创建 ，您可以在工作区中的文件夹 <em>.vscode</em> 中找到它。
-            <em>tasks.json</em> 存储编译配置。
-        </p>
-        <p>将您的新文件 <em>tasks.json</em> 中的全部内容替换为以下内容（注意第 10、11 行代码，可以根据需求其中一行被注释，另一行未被注释，否则无法编译）：
-        </p>
-        <pre><code class="language-json"><span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"tasks"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-        <span class="hljs-punctuation">{</span>
-            <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"cppbuild"</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"label"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"C/C++:g++.exe 生成活动文件"</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"command"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"C:\\msys64\\ucrt64\\bin\\g++.exe"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 编译器路径，如果您使用默认路径安装 UCRT64 则无需修改</span>
-            <span class="hljs-attr">"args"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-                <span class="hljs-string">"-fdiagnostics-color=always"</span><span class="hljs-punctuation">,</span>
-                <span class="hljs-string">"-g"</span><span class="hljs-punctuation">,</span>
-                <span class="hljs-string">"${file}"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 仅编译当前打开的源文件</span>
-                <span class="hljs-comment">//"${fileDirname}\\*.cpp", // 编译当前文件夹下的所有源文件</span>
-                <span class="hljs-string">"-o"</span><span class="hljs-punctuation">,</span>
-                <span class="hljs-string">"${fileDirname}\\${fileBasenameNoExtension}.exe"</span>
-            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"options"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-                <span class="hljs-attr">"cwd"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"${fileDirname}"</span>
-            <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"problemMatcher"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-                <span class="hljs-string">"$gcc"</span>
-            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"group"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-                <span class="hljs-attr">"kind"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"build"</span><span class="hljs-punctuation">,</span>
-                <span class="hljs-attr">"isDefault"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
-            <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"detail"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"调试器生成的任务。"</span>
-        <span class="hljs-punctuation">}</span>
-    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"version"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"2.0.0"</span>
-<span class="hljs-punctuation">}</span>
-</code></pre>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/a410f2ab039941eebab8cd305ca4667f.png" alt="">
-        </p>
-        <h3 id="调试-helloworldcpp">调试 <strong>helloworld.cpp</strong></h3>
-        <p>返回到 <em>helloworld.cpp</em> 。通过单击编辑器左侧边缘来设置断点。</p>
-        <p>从 <strong>开始</strong> 按钮旁边的下拉列表中，选择 <strong>调试 C/C++ 文件</strong> 。</p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/0020ada0975f4ee59086a93b5473a67f.png" alt="">
-        </p>
-        <p>从系统上检测到的编译器列表中选择 <strong>C/C++:g++.exe 生成和调试活动文件</strong> （仅在首次运行/调试
-            <em>helloworld.cpp</em>
-            时要求您选择编译器，所以一般情况下可以省略该步骤）。
-        </p>
-        <p><strong>开始</strong> 按钮有两种模式： <strong>运行 C/C++ 文件</strong> 和 <strong>调试 C/C++
-                文件</strong> 。它将默认为上次使用的模式。如果在
-            <strong>开始</strong> 按钮中看到调试图标，只需选择 <strong>开始</strong> 按钮即可进行调试，而无需使用下拉列表。
-        </p>
-        <h3 id="探索调试器"><strong>探索调试器</strong></h3>
-        <p>在开始单步执行代码之前，让我们花点时间注意用户界面中的几个更改：</p>
-        <p>集成 <strong>终端</strong> 显示在源代码编辑器的底部。</p>
-        <p>编辑器会突出显示在启动调试器之前设置断点的行。</p>
-        <p>左侧的 <strong>运行和调试</strong> 视图显示调试信息。</p>
-        <p>在代码编辑器的顶部，将显示调试控制面板。您可以通过托住左侧的点在屏幕上移动它。</p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/7546c3c1085c4cc985174354cd4541d3.png" alt="">
-        </p>
-        <h3 id="单步执行代码"><strong>单步执行代码</strong></h3>
-        <p>现在，你已准备好开始单步执行代码。</p>
-        <p>具体操作步骤省略，相关快捷键可以参考 <strong>附</strong> 。</p>
-        <p>最后您可以在集成 <strong>终端</strong> 中看到输出，以及 GDB 输出的一些其他诊断信息。</p>
-        <h3 id="设置监视"><strong>设置监视</strong></h3>
-        <p>有时，您可能希望在程序执行时跟踪变量的值。您可以通过在变量上设置监视来执行此操作。</p>
-        <p>在 <strong>监视</strong> 窗口中，选择加号，然后在文本框中键入变量。</p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/8865008f092f4d01be2da8291477ef3a.png" alt="">
-        </p>
-        <p>若要在断点处暂停执行时快速查看任何变量的值，可以使用鼠标指针将鼠标悬停在该变量上。</p>
-        <h3 id="使用-launchjson-自定义调试"><strong>使用 launch.json 自定义调试</strong></h3>
-        <p>使用 <strong>开始</strong> 按钮进行调试时，C++ 扩展会动态创建动态调试配置。</p>
-        <p>在某些情况下，您需要自定义调试配置，例如指定要在运行时传递给程序的参数。您可以在文件 <em>launch.json</em> 中定义自定义调试配置。</p>
-        <p>选择 <strong>设置</strong> 按钮来创建 <em>launch.json</em> ：您将看到各种预定义调试配置的下拉列表，选择
-            <strong>C/C++: g++.exe
-                生成和调试活动文件</strong> ，VS Code 会创建一个文件 <em>launch.json</em> 。将其中的全部内容替换为以下内容：
-        </p>
-        <pre><code class="language-json"><span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"configurations"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-        <span class="hljs-punctuation">{</span>
-            <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"C/C++:g++.exe 生成和调试活动文件"</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"cppdbg"</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"request"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"launch"</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"program"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"${fileDirname}\\${fileBasenameNoExtension}.exe"</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"args"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"stopAtEntry"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"cwd"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"${fileDirname}"</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"environment"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"externalConsole"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"internalConsoleOptions"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"neverOpen"</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"MIMode"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"gdb"</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"miDebuggerPath"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"C:\\msys64\\ucrt64\\bin\\gdb.exe"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 调试器路径，如果您使用默认路径安装 UCRT64 则无需修改</span>
-            <span class="hljs-attr">"setupCommands"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-                <span class="hljs-punctuation">{</span>
-                    <span class="hljs-attr">"description"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"为 gdb 启用整齐打印"</span><span class="hljs-punctuation">,</span>
-                    <span class="hljs-attr">"text"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"-enable-pretty-printing"</span><span class="hljs-punctuation">,</span>
-                    <span class="hljs-attr">"ignoreFailures"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
-                <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-                <span class="hljs-punctuation">{</span>
-                    <span class="hljs-attr">"description"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"将反汇编风格设置为 Intel"</span><span class="hljs-punctuation">,</span>
-                    <span class="hljs-attr">"text"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"-gdb-set disassembly-flavorintel"</span><span class="hljs-punctuation">,</span>
-                    <span class="hljs-attr">"ignoreFailures"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
-                <span class="hljs-punctuation">}</span>
-            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">"preLaunchTask"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"C/C++:g++.exe 生成活动文件"</span>
-        <span class="hljs-punctuation">}</span>
-    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"version"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"2.0.0"</span>
-<span class="hljs-punctuation">}</span>
-</code></pre>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/6022d6fa0f07492ebfeedd3969510228.png" alt="">
-        </p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/c54a8c4d18c8491dabf39e9a2fbae61b.png" alt="">
-        </p>
-        <p>从现在开始， <strong>开始</strong> 按钮将在启动程序进行调试时从您的文件 <em>launch.json</em> 中读取。</p>
-        <h2 id="更多"><strong>更多</strong></h2>
-        <ol>
-            <li>前文中 <em>tasks.json</em> 和 <em>launch.json</em> 的内容为作者将默认内容稍作修改后的版本，使 VS Code
-                更易于使用，具体如下：</li>
-        </ol>
-        <ul>
-            <li>在 <em>tasks.json</em> 中，添加：</li>
-        </ul>
-        <pre><code class="language-json"><span class="hljs-comment">// "${fileDirname}\\*.cpp",</span>
-</code></pre>
-        <ul>
-            <li>在 <em>launch.json</em> 中，添加，控制在开始调试后不打开内部 <strong>调试控制台</strong> ，而是停留在集成
-                <strong>终端</strong> ，便于输入和查看输出：
-            </li>
-        </ul>
-        <pre><code class="language-json"><span class="hljs-attr">"internalConsoleOptions"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"neverOpen"</span><span class="hljs-punctuation">,</span>
-</code></pre>
-        <ol start="2">
-            <li>
-                <p>推荐安装的拓展：<a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Code
-                        Runner</a>，<a
-                        href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">Tabnine
-                        AI
-                        Autocomplete</a>（非常推荐），<a
-                        href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons">vscode-icons</a>。其功能可以参考各自网页中的
-                    <strong>Overview</strong> ，还有其他优秀的拓展可以自行探索。
-                </p>
-            </li>
-            <li>
-                <p>为了使 VS Code 更易于使用，可以进行 VS Code <strong>用户设置</strong> 。在
-                    <em>%AppData%\Code\User</em> 中创建 JSON 文件
-                    <em>settings.json</em> （可以先新建文本文档，然后重命名为 <em>settings.json</em> ，然后通过 VS
-                    Code 打开，下 <strong>4</strong>
-                    同），内容如下（其中包含前文的自动保存的设置，您还可以自行探索还有其他设置）：
-                </p>
-            </li>
-        </ol>
-        <pre><code class="language-json"><span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">"editor.formatOnPaste"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 控制编辑器是否自动格式化粘贴的内容。格式化程序必须可用，并且能针对文档中的某一范围进行格式化。</span>
-    <span class="hljs-attr">"editor.formatOnSave"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 在保存时格式化文件。格式化程序必须可用，延迟后文件不能保存，并且编辑器不能关闭。</span>
-    <span class="hljs-attr">"editor.formatOnType"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 控制编辑器在键入一行后是否自动格式化该行。</span>
-    <span class="hljs-attr">"editor.minimap.enabled"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 控制是否显示缩略图。</span>
-    <span class="hljs-attr">"editor.wordWrap"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"on"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 控制折行的方式。</span>
-    <span class="hljs-attr">"terminal.integrated.allowChords"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 是否允许终端中的组合键绑定。</span>
-    <span class="hljs-attr">"terminal.integrated.enableMultiLinePasteWarning"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 将多行粘贴到终端时显示警告对话框。</span>
-    <span class="hljs-attr">"explorer.confirmDelete"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 控制资源管理器是否应在通过回收站删除文件时要求确认。</span>
-    <span class="hljs-attr">"explorer.confirmDragAndDrop"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 控制资源管理器是否应在通过拖放移动文件或文件夹时要求确认。</span>
-    <span class="hljs-attr">"window.autoDetectColorScheme"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 如果已设置，则根据 OS 外观自动切换到首选颜色主题。</span>
-    <span class="hljs-attr">"debug.onTaskErrors"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"showErrors"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 控制在运行预启动任务后遇到错误时应该怎么做。</span>
-    <span class="hljs-attr">"files.autoSave"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"afterDelay"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 控制具有未保存更改的编辑器的 自动保存。</span>
-    <span class="hljs-attr">"workbench.iconTheme"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"vscode-icons"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 指定工作台中使用的文件图标主题。</span>
-    <span class="hljs-attr">"tabnine.experimentalAutoImports"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 应用 Tabnine 建议后启用模块自动导入。</span>
-    <span class="hljs-attr">"tabnine.receiveBetaChannelUpdates"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 接收 Tabnine VS Code 扩展测试版更新。</span>
-    <span class="hljs-attr">"code-runner.clearPreviousOutput"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 是否在每次运行前清除以前的输出。</span>
-    <span class="hljs-attr">"code-runner.preserveFocus"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 是否在触发代码运行后保留对代码编辑器的焦点。</span>
-    <span class="hljs-attr">"code-runner.runInTerminal"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// 是否在集成终端中运行代码。</span>
-    <span class="hljs-attr">"code-runner.saveFileBeforeRun"</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span> <span class="hljs-comment">// 是否在运行前保存当前文件。</span>
-<span class="hljs-punctuation">}</span>
-</code></pre>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/f5cff31ec8fa4a78af113c199e4a6bec.png" alt="">
-        </p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/47afcc7c92ba4efe9ea1f53d7f7c7e56.png" alt="">
-        </p>
-        <ol start="4">
-            <li>为了将每次编译后产生的 EXE 等类型的文件删除，在工作区中创建 BAT 文件 <em>.del.bat</em> ，内容如下，然后在资源管理器中右键选择
-                <em>.del.bat</em> ，选择
-                <strong>Run Code</strong> （前提是已安装拓展 Code Runner）：
-            </li>
-        </ol>
-        <pre><code class="language-bat"><span class="hljs-built_in">del</span> *.exe /q /s
-<span class="hljs-built_in">del</span> a.out /q /s
-<span class="hljs-built_in">del</span> *.o /q /s
-<span class="hljs-built_in">del</span> *.log /q /s
-<span class="hljs-built_in">del</span> tempCodeRunnerFile.c /q /s
-</code></pre>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/3388098e59ac4795877a97d2bbea84cc.png" alt="">
-        </p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/81915b45260c4511a0be24e619dd6cc5.png" alt="">
-        </p>
-        <ol start="5">
-            <li>为了在运行 VS Code 的同时打开作为工作区的文件夹，可以右键选择其快捷方式，选择 <strong>属性</strong> ，在
-                <strong>目标</strong> 后添加工作区的路径，如：
-                <em>"C:\Program Files\Microsoft VS Code\Code.exe"
-                    "C:\code"</em> ，选择 <strong>确定</strong>
-                。
-            </li>
-        </ol>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/5bd6f1695a1941d9922d8e69092d8520.png" alt="">
-        </p>
-        <ol start="6">
-            <li>
-                <p>作为在全球范围内最受程序员欢迎的代码编辑器，VS Code 具有许多优秀的特点，可以帮助您轻松编写代码，您可以自行探索。</p>
-            </li>
-            <li>
-                <p>VS Code 还提供内部版本 <a href="https://code.visualstudio.com/insiders/">Visual
-                        Studio Code
-                        Insiders</a>（作者使用的版本），可以安装其来获取每天的最新版本。</p>
-            </li>
-            <li>
-                <p>本教程中涉及到的文件可以在<a
-                        href="https://gitee.com/xi_xu/courses/tree/master/%E3%80%8AVisual%20Studio%20Code%20%E2%80%93%20C++%20%E5%85%A5%E9%97%A8%E3%80%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E6%96%87%E4%BB%B6">此链接</a>下载。
-                </p>
-            </li>
-            <li>
-                <p>其他的相关内容（包含更深入的非入门级教程）可以参考 <a href="https://code.visualstudio.com/docs/">Visual Studio
-                        Code 官方文档</a>。
-                </p>
-            </li>
-            <li>
-                <p>由于作者水平有限，本教程可能存在一些不足，欢迎读者将发现的错误或提出的意见与建议告知作者（在手机上点击 <a
-                        href="https://ti.qq.com/open_qq/index2.html?url=mqqapi%3a%2f%2fuserprofile%2ffriend_profile_card%3fsrc_type%3dweb%26version%3d1.0%26source%3d2%26uin%3d2682183540">QQ</a>）。
-                </p>
-            </li>
-        </ol>
-        <h2 id="附"><strong>附</strong></h2>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/30f7260769124003abfebcc2b8c90c1d.jpg" alt="">
-        </p>
-        <p style="text-align: center;">
-            <img src="./Visual Studio Code (VS Code) – C++ 入门_files/56fac747a7cc4593921dc5df64b5e37b.jpg" alt="">
-        </p>
+                    <div class="col-lg-7 col-12">
+                        <div class="hero-text">
+                            <div class="hero-title-wrap d-flex align-items-center mb-4">
+                                <img src="images/logo.png" class="avatar-image avatar-image-large img-fluid" alt="">
 
-        <script async="" src="./Visual Studio Code (VS Code) – C++ 入门_files/katex-copytex.min.js.download"></script>
-        <script async="" type="text/javascript">
-            /* From extension cnblogs.vscode-cnb */
-            (() => { "use strict"; var e = {}; (e => { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) })(e); var t, n = function (e) { for (var t, n = 0, r = null !== (t = Array.from(e.classList).filter((function (e) { return e.toLowerCase().endsWith("sql") }))) && void 0 !== t ? t : []; n < r.length; n++) { var i = r[n]; e.classList.remove(i), e.classList.add("language-sql") } }, r = function (e, t) { null == t || t.forEach((function (t) { return e.setAttribute(t.name, t.value) })) }, i = { enableCodeLineNumber: !0, prism: { scriptPath: "/prism.min.js", autoLoaderPluginPath: "", lineNumberPluginPath: "", stylesheets: [], themeBaseUrl: "", defaultTheme: "" }, hljs: { scriptPath: "/highlight.min.js", lineNumberPluginPath: "/highlightjs-line-numbers.min.js", stylesheets: [], themeBaseUrl: "", defaultTheme: "" } }, o = { enableCodeLineNumber: !1, prism: { scriptPath: "https://common.cnblogs.com/prism/prism.js?v=1.23.0", lineNumberPluginPath: "https://common.cnblogs.com/prism/plugins/line-numbers/prism-line-numbers.min.js", autoLoaderPluginPath: "https://common.cnblogs.com/prism/plugins/autoloader/prism-autoloader.min.js", lineNumberStylePath: "https://common.cnblogs.com/prism/plugins/line-numbers/prism-line-numbers.css", themeBaseUrl: "https://www.cnblogs.com/css/prismjs", defaultTheme: "prism-vs", stylesheets: [] }, hljs: { scriptPath: "https://common.cnblogs.com/highlight/11.4.0/highlight.min.js", lineNumberPluginPath: "https://common.cnblogs.com/scripts/highlightjs-line-numbers.min.js", stylesheets: [], themeBaseUrl: "https://www.cnblogs.com/css/hljs", defaultTheme: "cnblogs" } }; !function (e) { var t = Object.assign({}, i); e.set = function (e) { Object.assign(t, e) }, e.get = function () { return t } }(t || (t = {})); var s, l = [], a = function (e) { e && clearTimeout(e) }, u = function (e, t) { var n = l.findIndex((function (n) { return e && n[0] === e || n[0] === t })); n >= 0 && l.splice(n, 1) }, c = function (e) { var t, n, r = e.url, i = e.id, o = e.timeoutSeconds, s = e.appendTo, c = e.hostElementTagName, h = e.beforeElementCreateCallback, f = s ? s.ownerDocument : document, p = null !== (n = null !== (t = f.defaultView) && void 0 !== t ? t : f.parentWindow) && void 0 !== n ? n : window, d = function (e, t) { var n = l.find((function (n) { return e && n[0] === e || n[0] === t })); return (null != n ? n : [])[1] }(f !== document ? "load-resource-to-another-window-context-" + p.name + "-" + i : i, r); if (d) return d; var m = f.querySelector("".concat(c, "#").concat(i)); return (m = (m = m || "script" === c && f.querySelector('script[src="'.concat(r, '"]'))) || "link" === c && f.querySelector('link[href="'.concat(r, '"]'))) ? Promise.resolve(m) : (d = new Promise((function (e, t) { var n, l; n = c, l = function (n) { var l; n.id = null != i ? i : "", null != s || (s = f.head), o = o <= 0 ? 5 : o, n instanceof HTMLLinkElement ? (n.href = r, n.rel = "stylesheet", n.type = "text/css") : n instanceof HTMLScriptElement && (n.src = r, n.type = "text/javascript", n.defer = !0), n.onload = function () { a(l), u(i, r), e(n) }, n.onerror = function (e) { a(l), n.remove(), u(i, r), t(e) }, null == h || h.call(void 0, n), s.append(n), l = setTimeout((function () { a(l), n.remove(), u(i, r), t("timeout after ".concat(o, " seconds")) }), 1e3 * o) }, l(document.createElement(n)) })), l.push([i || r, d]), d) }, h = {}, f = function () { return h }, p = function (e) { var t, n = e.src, r = e.id, i = e.timeoutSeconds, o = e.appendTo, s = e.executionStrategy; return c({ url: n, hostElementTagName: "script", timeoutSeconds: null !== (t = null != i ? i : f().timeoutSeconds) && void 0 !== t ? t : 5, id: r, appendTo: null != o ? o : f().appendTo, beforeElementCreateCallback: function (e) { e instanceof HTMLScriptElement && ("async" === (null != s ? s : f().executionStrategy) ? (e.async = !0, e.defer = !1) : (e.defer = !0, e.async = !1)) } }) }, d = function (e) { var t, n = e.href, r = e.timeoutSeconds, i = e.id, o = e.appendTo; return c({ url: n, hostElementTagName: "link", timeoutSeconds: null !== (t = null != r ? r : f().timeoutSeconds) && void 0 !== t ? t : 5, id: i, appendTo: null != o ? o : f().appendTo }) }, m = "highlighted-line", g = "highlighter-prismjs", b = function (e, t, n, r) { return new (n || (n = Promise))((function (i, o) { function s(e) { try { a(r.next(e)) } catch (e) { o(e) } } function l(e) { try { a(r.throw(e)) } catch (e) { o(e) } } function a(e) { var t; e.done ? i(e.value) : (t = e.value, t instanceof n ? t : new n((function (e) { e(t) }))).then(s, l) } a((r = r.apply(e, t || [])).next()) })) }, y = function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }, v = function () { function e() { this._isDarkTheme = !1, this.removeLinkElements("link[rel=stylesheet][prismjs]"), this.removeLinkElements("link[rel=stylesheet][hljs]") } return Object.defineProperty(e.prototype, "enableCodeLineNumber", { get: function () { return !1 }, enumerable: !1, configurable: !0 }), Object.defineProperty(e.prototype, "adapterOptions", { get: function () { return t.get() }, enumerable: !1, configurable: !0 }), Object.defineProperty(e.prototype, "isDarkTheme", { get: function () { return this._isDarkTheme }, enumerable: !1, configurable: !0 }), Object.defineProperty(e.prototype, "linesHighlightedClassToken", { get: function () { return this.id + "-lines-highlighted" }, enumerable: !1, configurable: !0 }), e.prototype.highlightAllUnder = function (e, t, n) { return b(this, void 0, void 0, (function () { var r, i, o, s, l, a, u, c = this; return y(this, (function (h) { switch (h.label) { case 0: return (r = "string" == typeof e ? document.querySelector(e) : e) ? (i = Array.from(r.querySelectorAll("pre code")).map((function (e) { return e }))).length > 0 ? [4, this.ensureResourcesLoaded()] : [3, 2] : [2]; case 1: h.sent(), h.label = 2; case 2: for (o = [], s = function (e) { var r = e.parentElement, i = e; if (t && !t(r, i)) return "continue"; o.push(new Promise((function (e, t) { c.highlight(i).then((function () { n && n(r, i), e() }), (function () { return t() })) }))) }, l = 0, a = i; l < a.length; l++)u = a[l], s(u); return [4, Promise.all(o)]; case 3: return h.sent(), [2] } })) })) }, e.prototype.setTheme = function (e, t, n) { var i; return b(this, void 0, void 0, (function () { var o, s; return y(this, (function (l) { switch (l.label) { case 0: if (this.setIsDarkTheme(n), !e && !this.highlighterOptions.defaultTheme) throw Error("Theme is required! And default theme not configured!"); return e || (e = this.highlighterOptions.defaultTheme), o = "highlighter-theme-".concat(e), s = !1, null === (i = document.querySelectorAll("link[id*=highlighter-theme-],link[id*=line-numbers-style]")) || void 0 === i || i.forEach((function (e) { e.id !== o ? e.remove() : s = !0 })), s ? [2] : (this._themeHref = "".concat(this.highlighterOptions.themeBaseUrl, "/").concat(e, ".css"), [4, d({ href: this._themeHref, id: o, beforeElementCreateCallback: function (e) { return r(e, t) } })]); case 1: return l.sent(), [2] } })) })) }, e.prototype.resolveContainerElements = function (e) { var t = null, n = null; if (e instanceof HTMLPreElement ? (t = e, n = e.querySelector("code")) : "code" === e.tagName.toLowerCase() && e.parentElement instanceof HTMLPreElement && (t = e.parentElement, n = e), n && t) return [t, n] }, e.prototype.loadStyles = function (e) { var t; return b(this, void 0, void 0, (function () { var n, i, o, s, l; return y(this, (function (a) { switch (a.label) { case 0: for (n = null !== (t = this.highlighterOptions.stylesheets) && void 0 !== t ? t : [], i = [], o = 0, s = n; o < s.length; o++)l = s[o], i.push(d({ href: l.href, id: l.tagId, beforeElementCreateCallback: function (t) { return r(t, e) } })); return [4, Promise.all(i)]; case 1: return a.sent(), [2] } })) })) }, e.prototype.tryApplyLang = function (e) { var t, n, r, i, o, s; if (!e) return ""; var l = Array.from(e.classList), a = null !== (r = null === (n = null === (t = e.parentElement) || void 0 === t ? void 0 : t.tagName) || void 0 === n ? void 0 : n.toLowerCase()) && void 0 !== r ? r : ""; if (l.findIndex((function (e) { return e.startsWith("language-") })) < 0 && "pre" === a) { var u = Array.from(null !== (o = null === (i = e.parentElement) || void 0 === i ? void 0 : i.classList) && void 0 !== o ? o : []).find((function (e) { return e.startsWith("language-") })); u && e.classList.add(u) } return null !== (s = Array.from(e.classList).find((function (e) { return e.startsWith("language-") }))) && void 0 !== s ? s : "" }, e.prototype.setBodyClass = function (e) { var t = ["prismjs-engine", "hljs-engine"], n = window.document.body.classList; switch (n.remove.apply(n, t), e) { case "prismjs": n.add(t[0]); break; case "highlight.js": n.add(t[1]) } }, e.prototype.setEngineClassToken = function (e, t) { for (var n = [g, "highlighter-hljs"], r = t.querySelector("code"), i = 0, o = [null == r ? void 0 : r.classList, t.classList]; i < o.length; i++) { var s = o[i]; switch (null == s || s.remove.apply(s, n), e) { case "prismjs": null == s || s.add(n[0]); break; case "highlight.js": null == s || s.add(n[1]) } } }, e.prototype.removeLinesHighlightedClassToken = function () { for (var e = [], t = 0; t < arguments.length; t++)e[t] = arguments[t]; for (var n = 0, r = e; n < r.length; n++) { var i = r[n].classList; i.remove.apply(i, Array.from(i).filter((function (e) { return e.endsWith("-lines-highlighted") }))) } }, e.prototype.filterCodeContent = function (e) { var t, n; if (!e) return ""; var r = document.createElement("code"); if (r.style.opacity = "0", r.style.width = "0", r.style.height = "0", r.style.whiteSpace = "pre", "code" === e.tagName.toLowerCase()) r.innerHTML = e.innerHTML; else { if ("pre" !== e.tagName.toLowerCase() || !e.querySelector("code")) return ""; r.innerHTML = null !== (n = null === (t = e.querySelector("code")) || void 0 === t ? void 0 : t.innerHTML) && void 0 !== n ? n : "" } var i = r.querySelector(".line-numbers-rows"); i && i.remove(); var o = r.querySelectorAll(".hljs-ln-line.hljs-ln-numbers"); null == o || o.forEach((function (e) { return e.remove() })), document.body.append(r); var s, l, a = r.innerText; return r.remove(), e.innerHTML = (s = a, (l = document.createElement("div")).textContent = s, l.innerHTML), a }, e.prototype.removeLinkElements = function (e) { var t; null === (t = document.querySelectorAll(e)) || void 0 === t || t.forEach((function (e) { return e.remove() })) }, e.prototype.resolveLinesToHighlight = function (e) { var t = e.getAttribute("data-lines-highlight"); try { var n = JSON.parse(null != t ? t : "[]"); return Array.isArray(n) ? n.map((function (e) { return e - 1 })) : [] } catch (e) { return void console.warn(e) } }, e.prototype.setIsDarkTheme = function (e) { this._isDarkTheme = null != e && e }, e }(), w = { tcltk: "tcl", tclsh: "tcl", tk: "tcl", pq: "powerquery", mscript: "powerquery", M: "powerquery", wat: "wasm", wast: "wasm", webassembly: "wasm" }; !function (e) { var t = this, n = function (e) { for (var t = [], n = 1; n < arguments.length; n++)t[n - 1] = arguments[n]; return hljs.getLanguage(e) ? (hljs.registerAliases(t.filter((function (e) { return null == hljs.getLanguage(e) })), { languageName: e }), !0) : (console.warn("Try to register [".concat(t.join(","), "] as aliases of ").concat(e, ", but ").concat(e, " is not defined.")), !1) }; e.load = function (e, r) { return i = t, o = void 0, l = function () { var t, i, o, s, l, a; return function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }(this, (function (u) { switch (u.label) { case 0: if (e = e.toLowerCase().trim().replace("language-", ""), !(t = null !== (a = w[e]) && void 0 !== a ? a : e) || hljs.getLanguage(t)) return n(t, e), [2]; i = r.scriptPath, (o = i.split("/")).pop(), s = o.join("/") + "/languages/".concat(t, ".min.js"), u.label = 1; case 1: return u.trys.push([1, 3, , 4]), [4, p({ id: "hljs-language-".concat(t), src: s })]; case 2: return u.sent(), n(t, e), [3, 4]; case 3: return l = u.sent(), console.warn("加载hljs语言定义脚本失败", l), [3, 4]; case 4: return [2] } })) }, new ((s = void 0) || (s = Promise))((function (e, t) { function n(e) { try { a(l.next(e)) } catch (e) { t(e) } } function r(e) { try { a(l.throw(e)) } catch (e) { t(e) } } function a(t) { var i; t.done ? e(t.value) : (i = t.value, i instanceof s ? i : new s((function (e) { e(i) }))).then(n, r) } a((l = l.apply(i, o || [])).next()) })); var i, o, s, l } }(s || (s = {})); var L, j = (L = function (e, t) { return L = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) { e.__proto__ = t } || function (e, t) { for (var n in t) Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]) }, L(e, t) }, function (e, t) { if ("function" != typeof t && null !== t) throw new TypeError("Class extends value " + String(t) + " is not a constructor or null"); function n() { this.constructor = e } L(e, t), e.prototype = null === t ? Object.create(t) : (n.prototype = t.prototype, new n) }), P = function (e, t, n, r) { return new (n || (n = Promise))((function (i, o) { function s(e) { try { a(r.next(e)) } catch (e) { o(e) } } function l(e) { try { a(r.throw(e)) } catch (e) { o(e) } } function a(e) { var t; e.done ? i(e.value) : (t = e.value, t instanceof n ? t : new n((function (e) { e(t) }))).then(s, l) } a((r = r.apply(e, t || [])).next()) })) }, T = function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }, k = window, C = function (e) { function t() { var t = null !== e && e.apply(this, arguments) || this; return t._linkAttr = { name: "hljs", value: "" }, t } return j(t, e), Object.defineProperty(t.prototype, "highlighterOptions", { get: function () { return this.adapterOptions.hljs }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "id", { get: function () { return "highlight.js" }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "linesHighlightedClassToken", { get: function () { return "hljs-lines-highlighted" }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "enableCodeLineNumber", { get: function () { return this.adapterOptions.enableCodeLineNumber }, enumerable: !1, configurable: !0 }), t.prototype.ensureResourcesLoaded = function () { return P(this, void 0, void 0, (function () { var e; return T(this, (function (t) { switch (t.label) { case 0: return t.trys.push([0, 3, , 4]), [4, this.loadHljs()]; case 1: return t.sent(), [4, this.loadStyles([this._linkAttr])]; case 2: return t.sent(), [3, 4]; case 3: return e = t.sent(), console.error(e), [2]; case 4: return [2] } })) })) }, t.prototype.highlight = function (e) { var t; return P(this, void 0, void 0, (function () { var r, i, o, l, a, u; return T(this, (function (c) { switch (c.label) { case 0: return [4, this.ensureResourcesLoaded()]; case 1: if (c.sent(), r = this.enableCodeLineNumber, i = null !== (t = this.resolveContainerElements(e)) && void 0 !== t ? t : [], o = i[0], l = i[1], !o || !l) return [2]; o.classList.remove(g), c.label = 2; case 2: return c.trys.push([2, 5, , 6]), r ? [4, this.loadLineNumberPlugin()] : [3, 4]; case 3: c.sent(), c.label = 4; case 4: return [3, 6]; case 5: return a = c.sent(), console.error(a), [3, 6]; case 6: return this.setBodyClass("highlight.js"), this.setEngineClassToken(this.id, o), this.removeLinesHighlightedClassToken(o, l), e.classList.remove("hljs-line-numbers"), u = this.tryApplyLang(e), this.filterCodeContent(e), n(e), [4, s.load(u, this.highlighterOptions)]; case 7: return c.sent(), hljs.highlightElement(e), r && (hljs.lineNumbersValue ? (e.innerHTML = hljs.lineNumbersValue(e.innerHTML, { singleLine: !0 }), e.classList.add("hljs-line-numbers")) : console.error("failed to load hljs line numbers plugin!")), this.highlightLines(o), l.classList.add("hljs"), this.isDarkTheme ? e.setAttribute("data-dark-theme", "true") : e.removeAttribute("data-dark-theme"), [2] } })) })) }, t.prototype.highlightLines = function (e) { var t = e.querySelector("code"); if (!t) return []; var n = this.resolveLinesToHighlight(t); if (null == n || n.length <= 0) return []; var r = t.innerHTML; if (!1 === this.adapterOptions.enableCodeLineNumber) { for (var i = r.split("\n"), o = 0, s = n; o < s.length; o++)if (!((c = s[o]) < 0 || c >= i.length)) { var l = i[c]; null != l && (i[c] = '<span class="'.concat(m, '">').concat(l, "</span>")) } t.innerHTML = '<span class="hljs-lines-highlight-wrapper">'.concat(i.join("\n"), "</span>") } else { i = Array.from(t.querySelectorAll("tr")); for (var a = 0, u = n; a < u.length; a++) { var c; if (!((c = u[a]) < 0 || c >= i.length)) { var h = i[c]; h && h.classList.add(m) } } } return e.classList.add(this.linesHighlightedClassToken), null != n ? n : [] }, t.prototype.loadHljs = function () { return P(this, void 0, void 0, (function () { var e; return T(this, (function (t) { switch (t.label) { case 0: return e = this.adapterOptions.hljs.scriptPath, k.hljs ? [3, 2] : [4, p({ id: "hljs-script", src: e })]; case 1: t.sent(), t.label = 2; case 2: return [2] } })) })) }, t.prototype.loadLineNumberPlugin = function () { return P(this, void 0, void 0, (function () { var e; return T(this, (function (t) { switch (t.label) { case 0: return e = this.adapterOptions.hljs.lineNumberPluginPath, [4, p({ id: "hljs-line-numbers", src: e })]; case 1: return t.sent(), [2] } })) })) }, t }(v), S = function () { var e = function (t, n) { return e = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) { e.__proto__ = t } || function (e, t) { for (var n in t) Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]) }, e(t, n) }; return function (t, n) { if ("function" != typeof n && null !== n) throw new TypeError("Class extends value " + String(n) + " is not a constructor or null"); function r() { this.constructor = t } e(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r) } }(), O = function (e, t, n, r) { return new (n || (n = Promise))((function (i, o) { function s(e) { try { a(r.next(e)) } catch (e) { o(e) } } function l(e) { try { a(r.throw(e)) } catch (e) { o(e) } } function a(e) { var t; e.done ? i(e.value) : (t = e.value, t instanceof n ? t : new n((function (e) { e(t) }))).then(s, l) } a((r = r.apply(e, t || [])).next()) })) }, E = function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }, H = window, N = function (e) { function t() { var t = null !== e && e.apply(this, arguments) || this; return t._linkAttr = { name: "prismjs", value: "" }, t } return S(t, e), Object.defineProperty(t.prototype, "highlighterOptions", { get: function () { return this.adapterOptions.prism }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "id", { get: function () { return "prismjs" }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "enableCodeLineNumber", { get: function () { return this.adapterOptions.enableCodeLineNumber }, enumerable: !1, configurable: !0 }), t.prototype.highlight = function (e) { var t; return O(this, void 0, void 0, (function () { var r, i, o; return E(this, (function (s) { switch (s.label) { case 0: return [4, this.ensureResourcesLoaded()]; case 1: return s.sent(), r = null !== (t = this.resolveContainerElements(e)) && void 0 !== t ? t : [], i = r[0], o = r[1], i && o ? (this.adapterOptions.enableCodeLineNumber ? i.classList.add("line-numbers") : (i.classList.remove("line-numbers"), o.classList.remove("line-numbers")), this.tryApplyLang(o), this.setBodyClass("prismjs"), this.setEngineClassToken(this.id, i), this.removeLinesHighlightedClassToken(i), this.filterCodeContent(o), n(o), Prism.highlightElement(o, !1), this.highlightLines(i), [2]) : [2] } })) })) }, t.prototype.highlightLines = function (e) { var t, n, r = e.querySelector("code"), i = this.resolveLinesToHighlight(r) || this.resolveLinesToHighlight(e); if (!i) return []; var o = r.innerHTML, s = null !== (n = null === (t = r.querySelector(".line-numbers-rows")) || void 0 === t ? void 0 : t.outerHTML) && void 0 !== n ? n : ""; s && (o = o.replace(s, "")); var l = o.split("\n"); return i.forEach((function (e) { if (!(e < 0 || e >= l.length)) { var t = l[e]; l[e] = '<span class="'.concat(m, '">').concat(t, "</span>") } })), r.innerHTML = l.join("\n") + s, e.classList.add(this.linesHighlightedClassToken), i }, t.prototype.ensureResourcesLoaded = function () { return O(this, void 0, void 0, (function () { var e; return E(this, (function (t) { switch (t.label) { case 0: return t.trys.push([0, 4, , 5]), [4, this.loadPrismAsync()]; case 1: return t.sent(), [4, Promise.all([this.loadPrismAutoLoader(), this.loadPrismLineNumberPluginScript()])]; case 2: return t.sent(), [4, this.loadStyles([this._linkAttr])]; case 3: return t.sent(), [3, 5]; case 4: return e = t.sent(), console.error(e), [2]; case 5: return [2] } })) })) }, t.prototype.setTheme = function (t, n, r) { return O(this, void 0, void 0, (function () { return E(this, (function (i) { switch (i.label) { case 0: return [4, e.prototype.setTheme.call(this, t, n, r)]; case 1: return i.sent(), [4, this.loadPrismLineNumberPluginStyle()]; case 2: return i.sent(), [2] } })) })) }, t.prototype.loadPrismAsync = function () { return O(this, void 0, void 0, (function () { var e; return E(this, (function (t) { switch (t.label) { case 0: return H.Prism = H.Prism || {}, Prism.manual = !0, e = this.adapterOptions.prism.scriptPath, [4, p({ id: "prismjs-script", src: e })]; case 1: return t.sent(), [2] } })) })) }, t.prototype.loadPrismAutoLoader = function () { var e; return O(this, void 0, void 0, (function () { var t, n; return E(this, (function (r) { switch (r.label) { case 0: return t = !!(null === (e = H.Prism.plugins) || void 0 === e ? void 0 : e.autoloader), n = this.adapterOptions.prism.autoLoaderPluginPath, t ? [3, 2] : [4, p({ id: "prismjs-autoloader-script", src: n })]; case 1: r.sent(), r.label = 2; case 2: return [2] } })) })) }, t.prototype.loadPrismLineNumberPluginScript = function () { return O(this, void 0, void 0, (function () { return E(this, (function (e) { switch (e.label) { case 0: if (!this.enableCodeLineNumber) return [2]; if (!this.adapterOptions.prism.lineNumberPluginPath) throw Error("lineNumberPluginPath not configured"); return [4, p({ id: "prism-line-numbers-script", src: this.adapterOptions.prism.lineNumberPluginPath })]; case 1: return e.sent(), [2] } })) })) }, t.prototype.loadPrismLineNumberPluginStyle = function () { return O(this, void 0, void 0, (function () { return E(this, (function (e) { if (!this.enableCodeLineNumber) return [2]; if (!this.adapterOptions.prism.lineNumberStylePath) throw Error("lineNumberStylePath not configured"); return d({ id: "prism-line-numbers-style", href: this.adapterOptions.prism.lineNumberStylePath, beforeElementCreateCallback: function (e) { return r(e, [{ name: "prismjs", value: "" }]) } }).then(), [2] })) })) }, t }(v); function A() { const e = "highlightedLineBackground"; if (!document.querySelector(`#${e}`)) { const t = document.createElement("style"); t.id = e, t.innerHTML = ":root { --highlighted-line-bg: var(--vscode-diffEditor-insertedTextBackground) }", document.head.append(t) } const t = new C; document.querySelectorAll('pre[class*="language-"][data-lines-highlight]').forEach((e => { const n = e.querySelector("code"); n && (n.firstChild instanceof HTMLDivElement && 1 === n.children.length && (n.firstChild.outerHTML = n.firstChild.innerHTML), t.highlightLines(e)) })) } (function () { function e() { } return e.configCodeHighlightOptions = function (e) { t.set(e) }, e.useCnblogsCodeHighlightOptions = function () { this.configCodeHighlightOptions(o) }, e.createCodeHighlighter = function (e, t, n) { var r; switch (n && this.configCodeHighlightOptions(n), e) { case "highlight.js": r = new C; break; case "prismjs": r = new N; break; default: throw Error("unknown highlight engine") }t || (t = r.highlighterOptions.defaultTheme); var i = "string" == typeof t ? t : t.name, o = "string" != typeof t && t.isDark; return r.setTheme(i, void 0, o).then(), r }, e })().configCodeHighlightOptions({ enableCodeLineNumber: !1 }), window.addEventListener("vscode.markdown.updateContent", A), A(), module.exports = e })();
-        </script>
+                                <h1 class="hero-title ms-3 mb-0">Hello friend!</h1>
+                            </div>
+
+                            <h2 class="mb-4">Welcome to Xi Xu's Personal Official Home Page!</h2>
+                            <p class="mb-4"><a class="custom-btn btn custom-link" href="#section_2">Let's begin</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-12 position-relative">
+                        <div class="hero-image-wrap"></div>
+                        <img src="images/portrait-happy-excited-man-holding-laptop-computer.png"
+                            class="hero-image img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#535da1" fill-opacity="1"
+                    d="M0,160L24,160C48,160,96,160,144,138.7C192,117,240,75,288,64C336,53,384,75,432,106.7C480,139,528,181,576,208C624,235,672,245,720,240C768,235,816,213,864,186.7C912,160,960,128,1008,133.3C1056,139,1104,181,1152,202.7C1200,224,1248,224,1296,197.3C1344,171,1392,117,1416,90.7L1440,64L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z">
+                </path>
+            </svg>
+        </section>
 
 
-    </div>
-    </div>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12">
+                        <img src="images/couple-working-from-home-together-sofa.jpg" class="about-image img-fluid"
+                            alt="">
+                    </div>
+
+                    <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+                        <div class="about-thumb">
+
+                            <div class="section-title-wrap d-flex justify-content-end align-items-center mb-4">
+                                <h2 class="text-white me-4 mb-0">My Story</h2>
+
+                                <img src="images/logo.png" class="avatar-image img-fluid" alt="">
+                            </div>
+
+                            <h3 class="pt-2 mb-3">A full stack programmer</h3>
+
+                            <p>
+                                I am a full stack programmer with over five years of experience in developing web
+                                applications using various
+                                technologies. I have expertise in both front-end and back-end development, as well as
+                                database design and deployment. I
+                                enjoy working on challenging projects that require creativity and problem-solving
+                                skills. I am always eager to learn new
+                                skills and tools to enhance my performance and deliver quality results.
+                            </p>
+                            <p>
+                                (Actually, I am still an undergraduate, and this website is only for testing!)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services section-padding" id="section_3">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-10 col-12 mx-auto">
+                        <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
+                            <img src="images/handshake-man-woman-after-signing-business-contract-closeup.jpg"
+                                class="avatar-image img-fluid" alt="">
+
+                            <h2 class="text-white ms-4 mb-0">Blogs</h2>
+                        </div>
+
+                        <div class="row pt-lg-5">
+                            <div class="col-lg-6 col-12">
+                                <div class="services-thumb">
+                                    <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
+                                        <h3 class="mb-0">Getting Started with Visual Studio Code (VS Code) - C++</h3>
+                                    </div>
+
+                                    <p>
+                                        A comprehensive and specific Visual Studio Code - C++entry-level tutorial based
+                                        on the official Visual Studio Code
+                                        documentation.
+                                    </p>
+
+                                    <a href="Visual Studio Code (VS Code) – C++ 入门.html"
+                                        class="custom-btn custom-border-btn btn mt-3">Discover More</a>
+
+                                    <div class="services-icon-wrap d-flex justify-content-center align-items-center">
+                                        <i class="services-icon bi-globe"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                                <div class="services-thumb services-thumb-up">
+                                    <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
+                                        <h3 class="mb-0">AcWing Algorithm Template Column</h3>
+
+
+                                    </div>
+
+                                    <p>Basic algorithms, data structures, search and graph theory, mathematical
+                                        knowledge.
+                                    </p>
+
+                                    <a href="https://blog.csdn.net/m0_73287396/category_12287715"
+                                        class="custom-btn custom-border-btn btn mt-3">Discover More</a>
+
+                                    <div class="services-icon-wrap d-flex justify-content-center align-items-center">
+                                        <i class="services-icon bi-lightbulb"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
 
+        <section class="contact section-padding" id="section_4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-12">
+                        <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
+                            <img src="images/aerial-view-man-using-computer-laptop-wooden-table.jpg"
+                                class="avatar-image img-fluid" alt="">
+                            <h2 class="text-white ms-4 mb-0">Contact</h2>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="col-lg-3 col-md-6 col-12 pe-lg-0">
+                        <div class="contact-info contact-info-border-start d-flex flex-column">
+                            <strong class="site-footer-title d-block mb-3">Blog platforms</strong>
+
+                            <ul class="footer-menu">
+                                <li class="footer-menu-item"><a
+                                        href="https://developer.huawei.com/consumer/cn/personalcenter/overview?uid=2dd8cece3261404b96e5832164d6111d"
+                                        class="footer-menu-link">Huawei Developer Community</a></li>
+
+                                <li class="footer-menu-item"><a
+                                        href="https://developer.aliyun.com/profile/dpkpzagcayasy"
+                                        class="footer-menu-link">Aliyun Developer Community</a></li>
+
+                                <li class="footer-menu-item"><a href="https://cloud.tencent.com/developer/user/10300929"
+                                        class="footer-menu-link">Tencent Cloud Developer Community</a></li>
+
+                                <li class="footer-menu-item"><a href="https://segmentfault.com/u/xi_xu"
+                                        class="footer-menu-link">SegmentFault</a></li>
+
+                                <li class="footer-menu-item"><a href="https://juejin.cn/user/3989497244560558"
+                                        class="footer-menu-link">Juejin</a></li>
+
+                                <li class="footer-menu-item"><a href="https://www.cnblogs.com/xi-xu/"
+                                        class="footer-menu-link">Cnblogs</a></li>
+
+                                <li class="footer-menu-item"><a href="https://blog.csdn.net/m0_73287396/"
+                                        class="footer-menu-link">CSDN</a></li>
+
+                                <li class="footer-menu-item"><a href="https://www.zhihu.com/people/xi-xu-93-69-98"
+                                        class="footer-menu-link">Zhihu</a></li>
+
+                                <li class="footer-menu-item"><a href="https://www.jianshu.com/u/dc3d87656c3c"
+                                        class="footer-menu-link">Jianshu</a></li>
+                            </ul>
+
+                            <strong class="site-footer-title d-block mt-4 mb-3">Stay connected</strong>
+
+                            <ul class="social-icon">
+                                <li class="social-icon-item"><a href="https://twitter.com/xi_xu1"
+                                        class="social-icon-link bi-twitter"></a></li>
+
+                                <li class="social-icon-item"><a href="https://instagram.com/xi_xu_zg/"
+                                        class="social-icon-link bi-instagram"></a></li>
+
+                                <li class="social-icon-item"><a
+                                        href="https://www.youtube.com/channel/UCfe8DNtBOjAHcgjafVwNDHg"
+                                        class="social-icon-link bi-youtube"></a></li>
+
+                                <li class="social-icon-item"><a
+                                        href="https://www.facebook.com/profile.php?id=100091980924572"
+                                        class="social-icon-link bi-facebook"></a></li>
+
+
+                            </ul>
 
 
 
 
+                        </div>
+                    </div>
 
+                    <div class="col-lg-3 col-md-6 col-12 ps-lg-0">
+                        <div class="contact-info d-flex flex-column">
+                            <strong class="site-footer-title d-block mb-3">Emails</strong>
+
+                            <p>
+                                <a href="mailto:xi-xu@outlook.com">
+                                    xi-xu@outlook.com
+                                </a>
+                            </p>
+
+                            <p>
+                                <a href="mailto:xi_xu@qq.com">
+                                    xi_xu@.qqcom
+                                </a>
+                            </p>
+
+
+                            <strong class="site-footer-title d-block mt-4 mb-3">Social Platforms</strong>
+
+
+                            <ul class="footer-menu">
+
+                                <li class="footer-menu-item"><a href="https://weibo.com/u/7768143311"
+                                        class="footer-menu-link">Weibo</a></li>
+                                </li>
+                                <li class="footer-menu-item"><a href="https://space.bilibili.com/691068278"
+                                        class="footer-menu-link">Bilibili</a></li>
+
+                                <li class="footer-menu-item"><a
+                                        href="https://www.xiaohongshu.com/user/profile/63c0ecf90000000026005dde"
+                                        class="footer-menu-link">Red</a></li>
+
+                                <li class="footer-menu-item"><a
+                                        href="https://www.douyin.com/user/MS4wLjABAAAAZ_9WV-GKSpjalwvuBQtByd1ZuYiO1AhCvIzgHVDCvlm801PucDO8aD7iFOclBoFU"
+                                        class="footer-menu-link">Douyin</a>
+                                </li>
+
+                                <li class="footer-menu-item"><a href="https://www.kuaishou.com/profile/3xus3gdwh3mhwkw"
+                                        class="footer-menu-link">Kuaishou</a>
+
+                                <li class="footer-menu-item"><a
+                                        href="https://foruda.gitee.comp\1683832993238950637/0f8204f2_11871931.png"
+                                        class="footer-menu-link">Wechat</a></li>
+
+                                <li class="footer-menu-item"><a href="https://qm.qq.com/cgi-bin/qm/qr?k=TCDbpIERSD3YJMI_eFGIamqOBaD5PDlj&noverify=0&personal_qrcode_source=4
+" class="footer-menu-link">QQ</a></li>
+
+
+
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+                        <form action="#" method="get" class="custom-form contact-form" role="form">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="Name"
+                                            required="">
+
+                                        <label for="floatingInput">Name</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
+                                            class="form-control" placeholder="Email address" required="">
+
+                                        <label for="floatingInput">Email address</label>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-lg-12 col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message" name="message"
+                                            placeholder="Tell me about the project"></textarea>
+
+                                        <label for="floatingTextarea">Tell me about the project</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-12 ms-auto">
+                                    <button type="submit" class="form-control">Send</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer class="site-footer">
         <div class="container">
@@ -768,8 +387,7 @@ gdb --version
                 <div class="col-lg-12 col-12">
                     <div class="copyright-text-wrap">
                         <p class="mb-0">
-                            <span class="copyright-text">Copyright © 2023 <a href="https://xi-xu-zg.github.io/">Xi
-                                    Xu</a> All rights
+                            <span class="copyright-text">Copyright © 2023 <a href="#">Xi Xu</a> All rights
                                 reserved.</span>
 
                         </p>
@@ -781,17 +399,13 @@ gdb --version
     </footer>
 
     <!-- JAVASCRIPT FILES -->
-    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/jquery.min.js.download"></script>
-    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/bootstrap.min.js.download"></script>
-    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/jquery.sticky.js.download"></script>
-    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/click-scroll.js.download"></script>
-    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/jquery.magnific-popup.min.js.download"></script>
-    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/magnific-popup-options.js.download"></script>
-    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/custom.js.download"></script>
-
-
-
-
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/magnific-popup-options.js"></script>
+    <script src="js/custom.js"></script>
 
 </body>
 
