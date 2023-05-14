@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+
+    <title>AcWing 算法基础课常用代码模板 2 —— 数据结构 - Xi Xu's Personal Official Home Page</title>
+
+    <link rel="Shortcut Icon" href="./images/icon.png" type="image/x-icon">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+
+    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/css2" rel="stylesheet">
+
+    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/bootstrap.min.css" rel="stylesheet">
+
+    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/magnific-popup.css" rel="stylesheet">
+
+    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/templatemo-first-portfolio-style.css" rel="stylesheet">
+
+    <style>
+        .vscode-dark img[src$=\#gh-light-mode-only],
+        .vscode-light img[src$=\#gh-dark-mode-only] {
+            display: none;
+        }
+
+
+        :root {
+            --highlighted-line-bg: #d1e3c9;
+            --highlighted-line-bg-dark: #264b33
+        }
+
+        .prismjs-engine pre[class*=language-],
+        .prismjs-engine pre[class*=language-].line-numbers {
+            white-space: normal
+        }
+
+        .prismjs-engine pre[class*=language-] code,
+        .prismjs-engine pre[class*=language-].line-numbers code {
+            display: block;
+            white-space: pre
+        }
+
+        .hljs-engine pre[class*=language-],
+        .hljs-engine pre[class*=language-].line-numbers {
+            white-space: normal
+        }
+
+        .hljs-engine pre[class*=language-] code,
+        .hljs-engine pre[class*=language-].line-numbers code {
+            white-space: pre
+        }
+
+        .hljs-engine .hljs .hljs-ln-numbers {
+            color: #bfbfbf;
+            padding: 0 14px
+        }
+
+        pre.hljs-lines-highlighted {
+            --spacing-left: 14px;
+            --spacing-right: 14px
+        }
+
+        pre.hljs-lines-highlighted :after,
+        pre.hljs-lines-highlighted :before {
+            box-sizing: border-box
+        }
+
+        pre.hljs-lines-highlighted,
+        pre.hljs-lines-highlighted[class*=language-] {
+            padding-left: 0;
+            padding-right: 0
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight],
+        pre.hljs-lines-highlighted code[data-lines-highlight] {
+            padding-left: var(--spacing-left);
+            padding-right: var(--spacing-right);
+            position: relative
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight].hljs-line-numbers,
+        pre.hljs-lines-highlighted code[data-lines-highlight].hljs-line-numbers {
+            padding-left: 0
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight][data-dark-theme],
+        pre.hljs-lines-highlighted code[data-lines-highlight][data-dark-theme] {
+            --highlighted-line-bg: var(--highlighted-line-bg-dark)
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln,
+        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln {
+            margin: 0;
+            width: 100%
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tbody,
+        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tbody {
+            width: 100%
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr:before,
+        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr:before {
+            content: " ";
+            position: absolute
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr:after,
+        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr:after {
+            content: " ";
+            display: block;
+            margin-right: calc(var(--spacing-right)*-1)
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line,
+        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line {
+            background: var(--highlighted-line-bg);
+            position: relative
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line td.hljs-ln-line.hljs-ln-numbers,
+        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line td.hljs-ln-line.hljs-ln-numbers {
+            background: var(--highlighted-line-bg)
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line:before,
+        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line:before {
+            background: var(--highlighted-line-bg);
+            content: "+";
+            display: inline-block;
+            left: 4px;
+            position: absolute;
+            z-index: 1
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line:after,
+        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line:after {
+            background: var(--highlighted-line-bg)
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-numbers,
+        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-numbers {
+            padding-left: calc(var(--spacing-left) + 4px);
+            padding-right: calc(var(--spacing-left) + 4px);
+            width: 1px
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-code,
+        pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-code {
+            width: 100%
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper,
+        pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper {
+            display: inline-block;
+            min-width: 100%
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line,
+        pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line {
+            background: var(--highlighted-line-bg);
+            display: inline-block;
+            min-width: 100%;
+            position: relative
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:before,
+        pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:before {
+            background: var(--highlighted-line-bg);
+            bottom: 0;
+            content: "+";
+            left: calc(var(--spacing-left)*-1);
+            padding-left: calc((var(--spacing-left) - .5px)/3);
+            position: absolute;
+            top: 0;
+            width: var(--spacing-left)
+        }
+
+        pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:after,
+        pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:after {
+            background: var(--highlighted-line-bg);
+            bottom: 0;
+            content: "";
+            left: calc(var(--spacing-left)*-1);
+            left: auto;
+            padding-left: 0;
+            position: absolute;
+            right: calc(var(--spacing-right)*-1);
+            top: 0;
+            width: var(--spacing-left)
+        }
+
+        pre.prismjs-lines-highlighted {
+            --spacing-right: 1em
+        }
+
+        pre.prismjs-lines-highlighted :after,
+        pre.prismjs-lines-highlighted :before {
+            box-sizing: border-box
+        }
+
+        pre.prismjs-lines-highlighted,
+        pre.prismjs-lines-highlighted.line-numbers,
+        pre.prismjs-lines-highlighted[class*=language-] {
+            padding-left: var(--spacing-left);
+            padding-right: var(--spacing-right)
+        }
+
+        pre.prismjs-lines-highlighted[class*=language-]:not(.line-numbers) {
+            --spacing-left: 1em
+        }
+
+        pre.prismjs-lines-highlighted[class*=language-].line-numbers {
+            --spacing-left: 3.8em
+        }
+
+        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] {
+            display: inline-block;
+            min-width: 100%;
+            position: relative
+        }
+
+        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight][data-dark-theme] {
+            --highlighted-line-bg: var(--highlighted-line-bg-dark)
+        }
+
+        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line {
+            background: var(--highlighted-line-bg);
+            display: inline-block;
+            min-width: 100%;
+            position: relative
+        }
+
+        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:after,
+        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:before {
+            background: var(--highlighted-line-bg);
+            content: " ";
+            display: inline-block;
+            position: absolute
+        }
+
+        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:before {
+            content: "+";
+            left: calc(var(--spacing-left)*-1);
+            padding-left: 4px;
+            width: var(--spacing-left)
+        }
+
+        pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:after {
+            position: absolute;
+            right: calc(var(--spacing-right)*-1);
+            width: var(--spacing-right)
+        }
+
+        pre.prismjs-lines-highlighted .line-numbers-rows span {
+            padding-right: 0
+        }
+    </style>
+    <link rel="stylesheet" href="./Visual Studio Code (VS Code) – C++ 入门_files/katex.min.css">
+    <link href="./Visual Studio Code (VS Code) – C++ 入门_files/katex-copytex.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./Visual Studio Code (VS Code) – C++ 入门_files/markdown.css">
+    <link rel="stylesheet" href="./Visual Studio Code (VS Code) – C++ 入门_files/highlight.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+    <style id="highlightedLineBackground">
+        :root {
+            --highlighted-line-bg: var(--vscode-diffEditor-insertedTextBackground)
+        }
+    </style>
+</head>
+<style>
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only] {
+        display: none;
+    }
+
+
+    :root {
+        --highlighted-line-bg: #d1e3c9;
+        --highlighted-line-bg-dark: #264b33
+    }
+
+    .prismjs-engine pre[class*=language-],
+    .prismjs-engine pre[class*=language-].line-numbers {
+        white-space: normal
+    }
+
+    .prismjs-engine pre[class*=language-] code,
+    .prismjs-engine pre[class*=language-].line-numbers code {
+        display: block;
+        white-space: pre
+    }
+
+    .hljs-engine pre[class*=language-],
+    .hljs-engine pre[class*=language-].line-numbers {
+        white-space: normal
+    }
+
+    .hljs-engine pre[class*=language-] code,
+    .hljs-engine pre[class*=language-].line-numbers code {
+        white-space: pre
+    }
+
+    .hljs-engine .hljs .hljs-ln-numbers {
+        color: #bfbfbf;
+        padding: 0 14px
+    }
+
+    pre.hljs-lines-highlighted {
+        --spacing-left: 14px;
+        --spacing-right: 14px
+    }
+
+    pre.hljs-lines-highlighted :after,
+    pre.hljs-lines-highlighted :before {
+        box-sizing: border-box
+    }
+
+    pre.hljs-lines-highlighted,
+    pre.hljs-lines-highlighted[class*=language-] {
+        padding-left: 0;
+        padding-right: 0
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight],
+    pre.hljs-lines-highlighted code[data-lines-highlight] {
+        padding-left: var(--spacing-left);
+        padding-right: var(--spacing-right);
+        position: relative
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight].hljs-line-numbers,
+    pre.hljs-lines-highlighted code[data-lines-highlight].hljs-line-numbers {
+        padding-left: 0
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight][data-dark-theme],
+    pre.hljs-lines-highlighted code[data-lines-highlight][data-dark-theme] {
+        --highlighted-line-bg: var(--highlighted-line-bg-dark)
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln,
+    pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln {
+        margin: 0;
+        width: 100%
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tbody,
+    pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tbody {
+        width: 100%
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr:before,
+    pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr:before {
+        content: " ";
+        position: absolute
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr:after,
+    pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr:after {
+        content: " ";
+        display: block;
+        margin-right: calc(var(--spacing-right)*-1)
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line,
+    pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line {
+        background: var(--highlighted-line-bg);
+        position: relative
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line td.hljs-ln-line.hljs-ln-numbers,
+    pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line td.hljs-ln-line.hljs-ln-numbers {
+        background: var(--highlighted-line-bg)
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line:before,
+    pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line:before {
+        background: var(--highlighted-line-bg);
+        content: "+";
+        display: inline-block;
+        left: 4px;
+        position: absolute;
+        z-index: 1
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr.highlighted-line:after,
+    pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr.highlighted-line:after {
+        background: var(--highlighted-line-bg)
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-numbers,
+    pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-numbers {
+        padding-left: calc(var(--spacing-left) + 4px);
+        padding-right: calc(var(--spacing-left) + 4px);
+        width: 1px
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-code,
+    pre.hljs-lines-highlighted code[data-lines-highlight] table.hljs-ln tr td.hljs-ln-line.hljs-ln-code {
+        width: 100%
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper,
+    pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper {
+        display: inline-block;
+        min-width: 100%
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line,
+    pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line {
+        background: var(--highlighted-line-bg);
+        display: inline-block;
+        min-width: 100%;
+        position: relative
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:before,
+    pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:before {
+        background: var(--highlighted-line-bg);
+        bottom: 0;
+        content: "+";
+        left: calc(var(--spacing-left)*-1);
+        padding-left: calc((var(--spacing-left) - .5px)/3);
+        position: absolute;
+        top: 0;
+        width: var(--spacing-left)
+    }
+
+    pre.hljs-lines-highlighted code.hljs[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:after,
+    pre.hljs-lines-highlighted code[data-lines-highlight]:not(.hljs-line-numbers) span.hljs-lines-highlight-wrapper span.highlighted-line:after {
+        background: var(--highlighted-line-bg);
+        bottom: 0;
+        content: "";
+        left: calc(var(--spacing-left)*-1);
+        left: auto;
+        padding-left: 0;
+        position: absolute;
+        right: calc(var(--spacing-right)*-1);
+        top: 0;
+        width: var(--spacing-left)
+    }
+
+    pre.prismjs-lines-highlighted {
+        --spacing-right: 1em
+    }
+
+    pre.prismjs-lines-highlighted :after,
+    pre.prismjs-lines-highlighted :before {
+        box-sizing: border-box
+    }
+
+    pre.prismjs-lines-highlighted,
+    pre.prismjs-lines-highlighted.line-numbers,
+    pre.prismjs-lines-highlighted[class*=language-] {
+        padding-left: var(--spacing-left);
+        padding-right: var(--spacing-right)
+    }
+
+    pre.prismjs-lines-highlighted[class*=language-]:not(.line-numbers) {
+        --spacing-left: 1em
+    }
+
+    pre.prismjs-lines-highlighted[class*=language-].line-numbers {
+        --spacing-left: 3.8em
+    }
+
+    pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] {
+        display: inline-block;
+        min-width: 100%;
+        position: relative
+    }
+
+    pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight][data-dark-theme] {
+        --highlighted-line-bg: var(--highlighted-line-bg-dark)
+    }
+
+    pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line {
+        background: var(--highlighted-line-bg);
+        display: inline-block;
+        min-width: 100%;
+        position: relative
+    }
+
+    pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:after,
+    pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:before {
+        background: var(--highlighted-line-bg);
+        content: " ";
+        display: inline-block;
+        position: absolute
+    }
+
+    pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:before {
+        content: "+";
+        left: calc(var(--spacing-left)*-1);
+        padding-left: 4px;
+        width: var(--spacing-left)
+    }
+
+    pre.prismjs-lines-highlighted code.highlighter-prismjs[data-lines-highlight] span.highlighted-line:after {
+        position: absolute;
+        right: calc(var(--spacing-right)*-1);
+        width: var(--spacing-right)
+    }
+
+    pre.prismjs-lines-highlighted .line-numbers-rows span {
+        padding-right: 0
+    }
+</style>
+
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+</style>
+<style>
+    .task-list-item {
+        list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+        margin-left: -20px;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+</style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+    <h2><a href="https://xi-xu-zg.github.io/"><strong>Xi Xu's Personal Official Home Page</strong></a></h2>
+
+    <a href="https://xi-xu-zg.github.io/" class="navbar mx-auto mx-lg-0">Go back to the Xi Xu's Personal Official Home
+        Page</a>
+    <div class="services-thumb">
+       
+        <h2><strong>AcWing 算法基础课常用代码模板 2 —— 数据结构</strong></h2>
+        <h4 id="单链表--模板题-acwing-826-单链表">单链表 —— 模板题 <a href="https://www.acwing.com/problem/content/828/">AcWing 826.
+                单链表</a></h4>
+        <pre><code class="language-cpp"><span class="hljs-comment">// head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点</span>
+<span class="hljs-type">int</span> head, e[N], ne[N], idx;
+
+<span class="hljs-comment">// 初始化</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span>
+</span>{
+    head = <span class="hljs-number">-1</span>;
+    idx = <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-comment">// 在链表头插入一个数a</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">int</span> a)</span>
+</span>{
+    e[idx] = a, ne[idx] = head, head = idx ++ ;
+}
+
+<span class="hljs-comment">// 将头结点删除，需要保证头结点存在</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">remove</span><span class="hljs-params">()</span>
+</span>{
+    head = ne[head];
+}
+</code></pre>
+        <hr>
+        <h4 id="双链表--模板题-acwing-827-双链表">双链表 —— 模板题 <a href="https://www.acwing.com/problem/content/829/">AcWing 827.
+                双链表</a></h4>
+        <pre><code class="language-cpp"><span class="hljs-comment">// e[]表示节点的值，l[]表示节点的左指针，r[]表示节点的右指针，idx表示当前用到了哪个节点</span>
+<span class="hljs-type">int</span> e[N], l[N], r[N], idx;
+
+<span class="hljs-comment">// 初始化</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">//0是左端点，1是右端点</span>
+    r[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>, l[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;
+    idx = <span class="hljs-number">2</span>;
+}
+
+<span class="hljs-comment">// 在节点a的右边插入一个数x</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> x)</span>
+</span>{
+    e[idx] = x;
+    l[idx] = a, r[idx] = r[a];
+    l[r[a]] = idx, r[a] = idx ++ ;
+}
+
+<span class="hljs-comment">// 删除节点a</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(<span class="hljs-type">int</span> a)</span>
+</span>{
+    l[r[a]] = l[a];
+    r[l[a]] = r[a];
+}
+</code></pre>
+        <hr>
+        <h4 id="栈--模板题-acwing-828-模拟栈">栈 —— 模板题 <a href="https://www.acwing.com/problem/content/830/">AcWing 828.
+                模拟栈</a>
+        </h4>
+        <pre><code class="language-cpp"><span class="hljs-comment">// tt表示栈顶</span>
+<span class="hljs-type">int</span> stk[N], tt = <span class="hljs-number">0</span>;
+
+<span class="hljs-comment">// 向栈顶插入一个数</span>
+stk[ ++ tt] = x;
+
+<span class="hljs-comment">// 从栈顶弹出一个数</span>
+tt -- ;
+
+<span class="hljs-comment">// 栈顶的值</span>
+stk[tt];
+
+<span class="hljs-comment">// 判断栈是否为空，如果 tt &gt; 0，则表示不为空</span>
+<span class="hljs-keyword">if</span> (tt &gt; <span class="hljs-number">0</span>)
+{
+    
+}
+</code></pre>
+        <hr>
+        <h4 id="队列--模板题-acwing-829-模拟队列">队列 —— 模板题 <a href="https://www.acwing.com/problem/content/831/">AcWing 829.
+                模拟队列</a></h4>
+        <h5 id="1-普通队列">1. 普通队列：</h5>
+        <pre><code class="language-cpp"><span class="hljs-comment">// hh 表示队头，tt表示队尾</span>
+<span class="hljs-type">int</span> q[N], hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;
+
+<span class="hljs-comment">// 向队尾插入一个数</span>
+q[ ++ tt] = x;
+
+<span class="hljs-comment">// 从队头弹出一个数</span>
+hh ++ ;
+
+<span class="hljs-comment">// 队头的值</span>
+q[hh];
+
+<span class="hljs-comment">// 判断队列是否为空，如果 hh &lt;= tt，则表示不为空</span>
+<span class="hljs-keyword">if</span> (hh &lt;= tt)
+{
+    
+}
+</code></pre>
+        <h5 id="2-循环队列">2. 循环队列</h5>
+        <pre><code class="language-cpp"><span class="hljs-comment">// hh 表示队头，tt表示队尾的后一个位置</span>
+<span class="hljs-type">int</span> q[N], hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">0</span>;
+
+<span class="hljs-comment">// 向队尾插入一个数</span>
+q[tt ++ ] = x;
+<span class="hljs-keyword">if</span> (tt == N) tt = <span class="hljs-number">0</span>;
+
+<span class="hljs-comment">// 从队头弹出一个数</span>
+hh ++ ;
+<span class="hljs-keyword">if</span> (hh == N) hh = <span class="hljs-number">0</span>;
+
+<span class="hljs-comment">// 队头的值</span>
+q[hh];
+
+<span class="hljs-comment">// 判断队列是否为空，如果hh != tt，则表示不为空</span>
+<span class="hljs-keyword">if</span> (hh != tt)
+{
+    
+}
+</code></pre>
+        <hr>
+        <h4 id="单调栈--模板题-acwing-830-单调栈">单调栈 —— 模板题 <a href="https://www.acwing.com/problem/content/832/">AcWing 830.
+                单调栈</a></h4>
+        <pre><code class="language-cpp">常见模型：找出每个数左边离它最近的比它大/小的数
+<span class="hljs-type">int</span> tt = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )
+{
+	<span class="hljs-keyword">while</span> (tt &amp;&amp; <span class="hljs-built_in">check</span>(stk[tt], i)) tt -- ;
+	stk[ ++ tt] = i;
+}
+</code></pre>
+        <hr>
+        <h4 id="单调队列--模板题-acwing-154-滑动窗口">单调队列 —— 模板题 <a href="https://www.acwing.com/problem/content/156/">AcWing 154.
+                滑动窗口</a></h4>
+        <pre><code class="language-cpp">常见模型：找出滑动窗口中的最大值/最小值
+<span class="hljs-type">int</span> hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;
+<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++ )
+{
+	<span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; <span class="hljs-built_in">check_out</span>(q[hh])) hh ++ ;  <span class="hljs-comment">// 判断队头是否滑出窗口</span>
+	<span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; <span class="hljs-built_in">check</span>(q[tt], i)) tt -- ;
+	q[ ++ tt] = i;
+}
+</code></pre>
+        <hr>
+        <h4 id="kmp--模板题-acwing-831-kmp字符串">KMP —— 模板题 <a href="https://www.acwing.com/problem/content/833/">AcWing 831.
+                KMP字符串</a></h4>
+        <pre><code class="language-cpp"><span class="hljs-comment">// s[]是长文本，p[]是模式串，n是s的长度，m是p的长度</span>
+求模式串的Next数组：
+<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>, j = <span class="hljs-number">0</span>; i &lt;= m; i ++ )
+{
+	<span class="hljs-keyword">while</span> (j &amp;&amp; p[i] != p[j + <span class="hljs-number">1</span>]) j = ne[j];
+	<span class="hljs-keyword">if</span> (p[i] == p[j + <span class="hljs-number">1</span>]) j ++ ;
+	ne[i] = j;
+}
+
+<span class="hljs-comment">// 匹配</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">0</span>; i &lt;= n; i ++ )
+{
+	<span class="hljs-keyword">while</span> (j &amp;&amp; s[i] != p[j + <span class="hljs-number">1</span>]) j = ne[j];
+	<span class="hljs-keyword">if</span> (s[i] == p[j + <span class="hljs-number">1</span>]) j ++ ;
+	<span class="hljs-keyword">if</span> (j == m)
+	{
+		j = ne[j];
+		<span class="hljs-comment">// 匹配成功后的逻辑</span>
+	}
+}
+</code></pre>
+        <hr>
+        <h4 id="trie树--模板题-acwing-835-trie字符串统计">Trie树 —— 模板题 <a
+                href="https://www.acwing.com/problem/content/837/">AcWing
+                835. Trie字符串统计</a></h4>
+        <pre><code class="language-cpp"><span class="hljs-type">int</span> son[N][<span class="hljs-number">26</span>], cnt[N], idx;
+<span class="hljs-comment">// 0号点既是根节点，又是空节点</span>
+<span class="hljs-comment">// son[][]存储树中每个节点的子节点</span>
+<span class="hljs-comment">// cnt[]存储以每个节点结尾的单词数量</span>
+
+<span class="hljs-comment">// 插入一个字符串</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">char</span> *str)</span>
+</span>{
+	<span class="hljs-type">int</span> p = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; str[i]; i ++ )
+	{
+		<span class="hljs-type">int</span> u = str[i] - <span class="hljs-string">&#x27;a&#x27;</span>;
+		<span class="hljs-keyword">if</span> (!son[p][u]) son[p][u] = ++ idx;
+		p = son[p][u];
+	}
+	cnt[p] ++ ;
+}
+
+<span class="hljs-comment">// 查询字符串出现的次数</span>
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">char</span> *str)</span>
+</span>{
+	<span class="hljs-type">int</span> p = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; str[i]; i ++ )
+	{
+		<span class="hljs-type">int</span> u = str[i] - <span class="hljs-string">&#x27;a&#x27;</span>;
+		<span class="hljs-keyword">if</span> (!son[p][u]) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+		p = son[p][u];
+	}
+	<span class="hljs-keyword">return</span> cnt[p];
+}
+</code></pre>
+        <hr>
+        <h4 id="并查集--模板题-acwing-836-合并集合-acwing-837-连通块中点的数量">并查集 —— 模板题 <a
+                href="https://www.acwing.com/problem/content/838/">AcWing 836. 合并集合</a>, <a
+                href="https://www.acwing.com/problem/content/839/">AcWing 837. 连通块中点的数量</a></h4>
+        <pre><code class="language-cpp">(<span class="hljs-number">1</span>)朴素并查集：
+
+	<span class="hljs-type">int</span> p[N]; <span class="hljs-comment">//存储每个点的祖宗节点</span>
+
+	<span class="hljs-comment">// 返回x的祖宗节点</span>
+	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span>
+	</span>{
+		<span class="hljs-keyword">if</span> (p[x] != x) p[x] = <span class="hljs-built_in">find</span>(p[x]);
+		<span class="hljs-keyword">return</span> p[x];
+	}
+
+	<span class="hljs-comment">// 初始化，假定节点编号是1~n</span>
+	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) p[i] = i;
+
+	<span class="hljs-comment">// 合并a和b所在的两个集合：</span>
+	p[<span class="hljs-built_in">find</span>(a)] = <span class="hljs-built_in">find</span>(b);
+
+
+(<span class="hljs-number">2</span>)维护size的并查集：
+
+	<span class="hljs-type">int</span> p[N], size[N];
+	<span class="hljs-comment">//p[]存储每个点的祖宗节点, size[]只有祖宗节点的有意义，表示祖宗节点所在集合中的点的数量</span>
+
+	<span class="hljs-comment">// 返回x的祖宗节点</span>
+	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span>
+	</span>{
+		<span class="hljs-keyword">if</span> (p[x] != x) p[x] = <span class="hljs-built_in">find</span>(p[x]);
+		<span class="hljs-keyword">return</span> p[x];
+	}
+
+	<span class="hljs-comment">// 初始化，假定节点编号是1~n</span>
+	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )
+	{
+		p[i] = i;
+		size[i] = <span class="hljs-number">1</span>;
+	}
+
+	<span class="hljs-comment">// 合并a和b所在的两个集合：</span>
+	size[<span class="hljs-built_in">find</span>(b)] += size[<span class="hljs-built_in">find</span>(a)];
+	p[<span class="hljs-built_in">find</span>(a)] = <span class="hljs-built_in">find</span>(b);
+
+
+(<span class="hljs-number">3</span>)维护到祖宗节点距离的并查集：
+
+	<span class="hljs-type">int</span> p[N], d[N];
+	<span class="hljs-comment">//p[]存储每个点的祖宗节点, d[x]存储x到p[x]的距离</span>
+
+	<span class="hljs-comment">// 返回x的祖宗节点</span>
+	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span>
+	</span>{
+		<span class="hljs-keyword">if</span> (p[x] != x)
+		{
+			<span class="hljs-type">int</span> u = <span class="hljs-built_in">find</span>(p[x]);
+			d[x] += d[p[x]];
+			p[x] = u;
+		}
+		<span class="hljs-keyword">return</span> p[x];
+	}
+
+	<span class="hljs-comment">// 初始化，假定节点编号是1~n</span>
+	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )
+	{
+		p[i] = i;
+		d[i] = <span class="hljs-number">0</span>;
+	}
+
+	<span class="hljs-comment">// 合并a和b所在的两个集合：</span>
+	p[<span class="hljs-built_in">find</span>(a)] = <span class="hljs-built_in">find</span>(b);
+	d[<span class="hljs-built_in">find</span>(a)] = distance; <span class="hljs-comment">// 根据具体问题，初始化find(a)的偏移量</span>
+</code></pre>
+        <hr>
+        <h4 id="堆--模板题-acwing-838-堆排序-acwing-839-模拟堆">堆 —— 模板题 <a
+                href="https://www.acwing.com/problem/content/840/">AcWing
+                838. 堆排序</a>, <a href="https://www.acwing.com/problem/content/841/">AcWing 839. 模拟堆</a></h4>
+        <pre><code class="language-cpp"><span class="hljs-comment">// h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1</span>
+<span class="hljs-comment">// ph[k]存储第k个插入的点在堆中的位置</span>
+<span class="hljs-comment">// hp[k]存储堆中下标是k的点是第几个插入的</span>
+<span class="hljs-type">int</span> h[N], ph[N], hp[N], size;
+
+<span class="hljs-comment">// 交换两个点，及其映射关系</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">heap_swap</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>
+</span>{
+	<span class="hljs-built_in">swap</span>(ph[hp[a]],ph[hp[b]]);
+	<span class="hljs-built_in">swap</span>(hp[a], hp[b]);
+	<span class="hljs-built_in">swap</span>(h[a], h[b]);
+}
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">down</span><span class="hljs-params">(<span class="hljs-type">int</span> u)</span>
+</span>{
+	<span class="hljs-type">int</span> t = u;
+	<span class="hljs-keyword">if</span> (u * <span class="hljs-number">2</span> &lt;= size &amp;&amp; h[u * <span class="hljs-number">2</span>] &lt; h[t]) t = u * <span class="hljs-number">2</span>;
+	<span class="hljs-keyword">if</span> (u * <span class="hljs-number">2</span> + <span class="hljs-number">1</span> &lt;= size &amp;&amp; h[u * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>] &lt; h[t]) t = u * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>;
+	<span class="hljs-keyword">if</span> (u != t)
+	{
+		<span class="hljs-built_in">heap_swap</span>(u, t);
+		<span class="hljs-built_in">down</span>(t);
+	}
+}
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">up</span><span class="hljs-params">(<span class="hljs-type">int</span> u)</span>
+</span>{
+	<span class="hljs-keyword">while</span> (u / <span class="hljs-number">2</span> &amp;&amp; h[u] &lt; h[u / <span class="hljs-number">2</span>])
+	{
+		<span class="hljs-built_in">heap_swap</span>(u, u / <span class="hljs-number">2</span>);
+		u &gt;&gt;= <span class="hljs-number">1</span>;
+	}
+}
+
+<span class="hljs-comment">// O(n)建堆</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n / <span class="hljs-number">2</span>; i; i -- ) <span class="hljs-built_in">down</span>(i);
+</code></pre>
+        <hr>
+        <h4 id="一般哈希--模板题-acwing-840-模拟散列表">一般哈希 —— 模板题 <a href="https://www.acwing.com/problem/content/842/">AcWing
+                840.
+                模拟散列表</a></h4>
+        <pre><code class="language-cpp">(<span class="hljs-number">1</span>) 拉链法
+	<span class="hljs-type">int</span> h[N], e[N], ne[N], idx;
+
+	<span class="hljs-comment">// 向哈希表中插入一个数</span>
+	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span>
+	</span>{
+		<span class="hljs-type">int</span> k = (x % N + N) % N;
+		e[idx] = x;
+		ne[idx] = h[k];
+		h[k] = idx ++ ;
+	}
+
+	<span class="hljs-comment">// 在哈希表中查询某个数是否存在</span>
+	<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span>
+	</span>{
+		<span class="hljs-type">int</span> k = (x % N + N) % N;
+		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = h[k]; i != <span class="hljs-number">-1</span>; i = ne[i])
+			<span class="hljs-keyword">if</span> (e[i] == x)
+				<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+
+		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+	}
+
+(<span class="hljs-number">2</span>) 开放寻址法
+	<span class="hljs-type">int</span> h[N];
+
+	<span class="hljs-comment">// 如果x在哈希表中，返回x的下标；如果x不在哈希表中，返回x应该插入的位置</span>
+	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span>
+	</span>{
+		<span class="hljs-type">int</span> t = (x % N + N) % N;
+		<span class="hljs-keyword">while</span> (h[t] != null &amp;&amp; h[t] != x)
+		{
+			t ++ ;
+			<span class="hljs-keyword">if</span> (t == N) t = <span class="hljs-number">0</span>;
+		}
+		<span class="hljs-keyword">return</span> t;
+	}
+</code></pre>
+        <hr>
+        <h4 id="字符串哈希--模板题-acwing-841-字符串哈希">字符串哈希 —— 模板题 <a href="https://www.acwing.com/problem/content/843/">AcWing
+                841.
+                字符串哈希</a></h4>
+        <pre><code class="language-cpp">核心思想：将字符串看成P进制数，P的经验值是<span class="hljs-number">131</span>或<span class="hljs-number">13331</span>，取这两个值的冲突概率低
+小技巧：取模的数用<span class="hljs-number">2</span>^<span class="hljs-number">64</span>，这样直接用<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span>存储，溢出的结果就是取模的结果
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ULL;
+ULL h[N], p[N]; <span class="hljs-comment">// h[k]存储字符串前k个字母的哈希值, p[k]存储 P^k mod 2^64</span>
+
+<span class="hljs-comment">// 初始化</span>
+p[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )
+{
+	h[i] = h[i - <span class="hljs-number">1</span>] * P + str[i];
+	p[i] = p[i - <span class="hljs-number">1</span>] * P;
+}
+
+<span class="hljs-comment">// 计算子串 str[l ~ r] 的哈希值</span>
+<span class="hljs-function">ULL <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span>
+</span>{
+	<span class="hljs-keyword">return</span> h[r] - h[l - <span class="hljs-number">1</span>] * p[r - l + <span class="hljs-number">1</span>];
+}
+</code></pre>
+        <hr>
+        <h4 id="c-stl简介">C++ STL简介</h4>
+        <pre><code class="language-cpp">vector, 变长数组，倍增的思想
+	<span class="hljs-built_in">size</span>()  返回元素个数
+	<span class="hljs-built_in">empty</span>()  返回是否为空
+	<span class="hljs-built_in">clear</span>()  清空
+	<span class="hljs-built_in">front</span>()/<span class="hljs-built_in">back</span>()
+	<span class="hljs-built_in">push_back</span>()/<span class="hljs-built_in">pop_back</span>()
+	<span class="hljs-built_in">begin</span>()/<span class="hljs-built_in">end</span>()
+	[]
+	支持比较运算，按字典序
+
+pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;
+	first, 第一个元素
+	second, 第二个元素
+	支持比较运算，以first为第一关键字，以second为第二关键字（字典序）
+
+string，字符串
+	<span class="hljs-built_in">size</span>()/<span class="hljs-built_in">length</span>()  返回字符串长度
+	<span class="hljs-built_in">empty</span>()
+	<span class="hljs-built_in">clear</span>()
+	<span class="hljs-built_in">substr</span>(起始下标，(子串长度))  返回子串
+	<span class="hljs-built_in">c_str</span>()  返回字符串所在字符数组的起始地址
+
+queue, 队列
+	<span class="hljs-built_in">size</span>()
+	<span class="hljs-built_in">empty</span>()
+	<span class="hljs-built_in">push</span>()  向队尾插入一个元素
+	<span class="hljs-built_in">front</span>()  返回队头元素
+	<span class="hljs-built_in">back</span>()  返回队尾元素
+	<span class="hljs-built_in">pop</span>()  弹出队头元素
+
+priority_queue, 优先队列，默认是大根堆
+    <span class="hljs-built_in">size</span>()
+    <span class="hljs-built_in">empty</span>()
+	<span class="hljs-built_in">push</span>()  插入一个元素
+	<span class="hljs-built_in">top</span>()  返回堆顶元素
+	<span class="hljs-built_in">pop</span>()  弹出堆顶元素
+	定义成小根堆的方式：priority_queue&lt;<span class="hljs-type">int</span>, vector&lt;<span class="hljs-type">int</span>&gt;, greater&lt;<span class="hljs-type">int</span>&gt;&gt; q;
+
+stack, 栈
+	<span class="hljs-built_in">size</span>()
+	<span class="hljs-built_in">empty</span>()
+	<span class="hljs-built_in">push</span>()  向栈顶插入一个元素
+	<span class="hljs-built_in">top</span>()  返回栈顶元素
+	<span class="hljs-built_in">pop</span>()  弹出栈顶元素
+
+deque, 双端队列
+	<span class="hljs-built_in">size</span>()
+	<span class="hljs-built_in">empty</span>()
+	<span class="hljs-built_in">clear</span>()
+	<span class="hljs-built_in">front</span>()/<span class="hljs-built_in">back</span>()
+	<span class="hljs-built_in">push_back</span>()/<span class="hljs-built_in">pop_back</span>()
+	<span class="hljs-built_in">push_front</span>()/<span class="hljs-built_in">pop_front</span>()
+	<span class="hljs-built_in">begin</span>()/<span class="hljs-built_in">end</span>()
+	[]
+
+set, map, multiset, multimap, 基于平衡二叉树（红黑树），动态维护有序序列
+	<span class="hljs-built_in">size</span>()
+	<span class="hljs-built_in">empty</span>()
+	<span class="hljs-built_in">clear</span>()
+	<span class="hljs-built_in">begin</span>()/<span class="hljs-built_in">end</span>()
+	++, -- 返回前驱和后继，时间复杂度 <span class="hljs-built_in">O</span>(logn)
+	
+	set/<span class="hljs-function">multiset
+		<span class="hljs-title">insert</span><span class="hljs-params">()</span>  插入一个数
+		<span class="hljs-title">find</span><span class="hljs-params">()</span>  查找一个数
+		<span class="hljs-title">count</span><span class="hljs-params">()</span>  返回某一个数的个数
+		<span class="hljs-title">erase</span><span class="hljs-params">()</span>
+			<span class="hljs-params">(<span class="hljs-number">1</span>)</span> 输入是一个数x，删除所有x   <span class="hljs-title">O</span><span class="hljs-params">(k + logn)</span>
+			<span class="hljs-params">(<span class="hljs-number">2</span>)</span> 输入一个迭代器，删除这个迭代器
+		<span class="hljs-title">lower_bound</span><span class="hljs-params">()</span>/<span class="hljs-title">upper_bound</span><span class="hljs-params">()</span>
+			<span class="hljs-title">lower_bound</span><span class="hljs-params">(x)</span>  返回大于等于x的最小的数的迭代器
+			<span class="hljs-title">upper_bound</span><span class="hljs-params">(x)</span>  返回大于x的最小的数的迭代器
+	map/multimap
+		<span class="hljs-title">insert</span><span class="hljs-params">()</span>  插入的数是一个pair
+		<span class="hljs-title">erase</span><span class="hljs-params">()</span>  输入的参数是pair或者迭代器
+		<span class="hljs-title">find</span><span class="hljs-params">()</span>
+		[]  注意multimap不支持此操作。 时间复杂度是 <span class="hljs-title">O</span><span class="hljs-params">(logn)</span>
+		<span class="hljs-title">lower_bound</span><span class="hljs-params">()</span>/<span class="hljs-title">upper_bound</span><span class="hljs-params">()</span>
+
+unordered_set, unordered_map, unordered_multiset, unordered_multimap, 哈希表
+	和上面类似，增删改查的时间复杂度是 <span class="hljs-title">O</span><span class="hljs-params">(<span class="hljs-number">1</span>)</span>
+	不支持 <span class="hljs-title">lower_bound</span><span class="hljs-params">()</span>/<span class="hljs-title">upper_bound</span><span class="hljs-params">()</span>， 迭代器的++，--
+
+bitset, 圧位
+	bitset&lt;10000&gt; s</span>;
+	~, &amp;, |, ^
+	&gt;&gt;, &lt;&lt;
+	==, !=
+	[]
+	
+	<span class="hljs-built_in">count</span>()  返回有多少个<span class="hljs-number">1</span>
+	
+	<span class="hljs-built_in">any</span>()  判断是否至少有一个<span class="hljs-number">1</span>
+	<span class="hljs-built_in">none</span>()  判断是否全为<span class="hljs-number">0</span>
+	
+	<span class="hljs-built_in">set</span>()  把所有位置成<span class="hljs-number">1</span>
+	<span class="hljs-built_in">set</span>(k, v)  将第k位变成v
+	<span class="hljs-built_in">reset</span>()  把所有位变成<span class="hljs-number">0</span>
+	<span class="hljs-built_in">flip</span>()  等价于~
+	<span class="hljs-built_in">flip</span>(k) 把第k位取反
+</code></pre>
+
+
+        <script async type="text/javascript">
+            /* From extension cnblogs.vscode-cnb */
+            (() => { "use strict"; var e = {}; (e => { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) })(e); var t, n = function (e) { for (var t, n = 0, r = null !== (t = Array.from(e.classList).filter((function (e) { return e.toLowerCase().endsWith("sql") }))) && void 0 !== t ? t : []; n < r.length; n++) { var i = r[n]; e.classList.remove(i), e.classList.add("language-sql") } }, r = function (e, t) { null == t || t.forEach((function (t) { return e.setAttribute(t.name, t.value) })) }, i = { enableCodeLineNumber: !0, prism: { scriptPath: "/prism.min.js", autoLoaderPluginPath: "", lineNumberPluginPath: "", stylesheets: [], themeBaseUrl: "", defaultTheme: "" }, hljs: { scriptPath: "/highlight.min.js", lineNumberPluginPath: "/highlightjs-line-numbers.min.js", stylesheets: [], themeBaseUrl: "", defaultTheme: "" } }, o = { enableCodeLineNumber: !1, prism: { scriptPath: "https://common.cnblogs.com/prism/prism.js?v=1.23.0", lineNumberPluginPath: "https://common.cnblogs.com/prism/plugins/line-numbers/prism-line-numbers.min.js", autoLoaderPluginPath: "https://common.cnblogs.com/prism/plugins/autoloader/prism-autoloader.min.js", lineNumberStylePath: "https://common.cnblogs.com/prism/plugins/line-numbers/prism-line-numbers.css", themeBaseUrl: "https://www.cnblogs.com/css/prismjs", defaultTheme: "prism-vs", stylesheets: [] }, hljs: { scriptPath: "https://common.cnblogs.com/highlight/11.4.0/highlight.min.js", lineNumberPluginPath: "https://common.cnblogs.com/scripts/highlightjs-line-numbers.min.js", stylesheets: [], themeBaseUrl: "https://www.cnblogs.com/css/hljs", defaultTheme: "cnblogs" } }; !function (e) { var t = Object.assign({}, i); e.set = function (e) { Object.assign(t, e) }, e.get = function () { return t } }(t || (t = {})); var s, l = [], a = function (e) { e && clearTimeout(e) }, u = function (e, t) { var n = l.findIndex((function (n) { return e && n[0] === e || n[0] === t })); n >= 0 && l.splice(n, 1) }, c = function (e) { var t, n, r = e.url, i = e.id, o = e.timeoutSeconds, s = e.appendTo, c = e.hostElementTagName, h = e.beforeElementCreateCallback, f = s ? s.ownerDocument : document, p = null !== (n = null !== (t = f.defaultView) && void 0 !== t ? t : f.parentWindow) && void 0 !== n ? n : window, d = function (e, t) { var n = l.find((function (n) { return e && n[0] === e || n[0] === t })); return (null != n ? n : [])[1] }(f !== document ? "load-resource-to-another-window-context-" + p.name + "-" + i : i, r); if (d) return d; var m = f.querySelector("".concat(c, "#").concat(i)); return (m = (m = m || "script" === c && f.querySelector('script[src="'.concat(r, '"]'))) || "link" === c && f.querySelector('link[href="'.concat(r, '"]'))) ? Promise.resolve(m) : (d = new Promise((function (e, t) { var n, l; n = c, l = function (n) { var l; n.id = null != i ? i : "", null != s || (s = f.head), o = o <= 0 ? 5 : o, n instanceof HTMLLinkElement ? (n.href = r, n.rel = "stylesheet", n.type = "text/css") : n instanceof HTMLScriptElement && (n.src = r, n.type = "text/javascript", n.defer = !0), n.onload = function () { a(l), u(i, r), e(n) }, n.onerror = function (e) { a(l), n.remove(), u(i, r), t(e) }, null == h || h.call(void 0, n), s.append(n), l = setTimeout((function () { a(l), n.remove(), u(i, r), t("timeout after ".concat(o, " seconds")) }), 1e3 * o) }, l(document.createElement(n)) })), l.push([i || r, d]), d) }, h = {}, f = function () { return h }, p = function (e) { var t, n = e.src, r = e.id, i = e.timeoutSeconds, o = e.appendTo, s = e.executionStrategy; return c({ url: n, hostElementTagName: "script", timeoutSeconds: null !== (t = null != i ? i : f().timeoutSeconds) && void 0 !== t ? t : 5, id: r, appendTo: null != o ? o : f().appendTo, beforeElementCreateCallback: function (e) { e instanceof HTMLScriptElement && ("async" === (null != s ? s : f().executionStrategy) ? (e.async = !0, e.defer = !1) : (e.defer = !0, e.async = !1)) } }) }, d = function (e) { var t, n = e.href, r = e.timeoutSeconds, i = e.id, o = e.appendTo; return c({ url: n, hostElementTagName: "link", timeoutSeconds: null !== (t = null != r ? r : f().timeoutSeconds) && void 0 !== t ? t : 5, id: i, appendTo: null != o ? o : f().appendTo }) }, m = "highlighted-line", g = "highlighter-prismjs", b = function (e, t, n, r) { return new (n || (n = Promise))((function (i, o) { function s(e) { try { a(r.next(e)) } catch (e) { o(e) } } function l(e) { try { a(r.throw(e)) } catch (e) { o(e) } } function a(e) { var t; e.done ? i(e.value) : (t = e.value, t instanceof n ? t : new n((function (e) { e(t) }))).then(s, l) } a((r = r.apply(e, t || [])).next()) })) }, y = function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }, v = function () { function e() { this._isDarkTheme = !1, this.removeLinkElements("link[rel=stylesheet][prismjs]"), this.removeLinkElements("link[rel=stylesheet][hljs]") } return Object.defineProperty(e.prototype, "enableCodeLineNumber", { get: function () { return !1 }, enumerable: !1, configurable: !0 }), Object.defineProperty(e.prototype, "adapterOptions", { get: function () { return t.get() }, enumerable: !1, configurable: !0 }), Object.defineProperty(e.prototype, "isDarkTheme", { get: function () { return this._isDarkTheme }, enumerable: !1, configurable: !0 }), Object.defineProperty(e.prototype, "linesHighlightedClassToken", { get: function () { return this.id + "-lines-highlighted" }, enumerable: !1, configurable: !0 }), e.prototype.highlightAllUnder = function (e, t, n) { return b(this, void 0, void 0, (function () { var r, i, o, s, l, a, u, c = this; return y(this, (function (h) { switch (h.label) { case 0: return (r = "string" == typeof e ? document.querySelector(e) : e) ? (i = Array.from(r.querySelectorAll("pre code")).map((function (e) { return e }))).length > 0 ? [4, this.ensureResourcesLoaded()] : [3, 2] : [2]; case 1: h.sent(), h.label = 2; case 2: for (o = [], s = function (e) { var r = e.parentElement, i = e; if (t && !t(r, i)) return "continue"; o.push(new Promise((function (e, t) { c.highlight(i).then((function () { n && n(r, i), e() }), (function () { return t() })) }))) }, l = 0, a = i; l < a.length; l++)u = a[l], s(u); return [4, Promise.all(o)]; case 3: return h.sent(), [2] } })) })) }, e.prototype.setTheme = function (e, t, n) { var i; return b(this, void 0, void 0, (function () { var o, s; return y(this, (function (l) { switch (l.label) { case 0: if (this.setIsDarkTheme(n), !e && !this.highlighterOptions.defaultTheme) throw Error("Theme is required! And default theme not configured!"); return e || (e = this.highlighterOptions.defaultTheme), o = "highlighter-theme-".concat(e), s = !1, null === (i = document.querySelectorAll("link[id*=highlighter-theme-],link[id*=line-numbers-style]")) || void 0 === i || i.forEach((function (e) { e.id !== o ? e.remove() : s = !0 })), s ? [2] : (this._themeHref = "".concat(this.highlighterOptions.themeBaseUrl, "/").concat(e, ".css"), [4, d({ href: this._themeHref, id: o, beforeElementCreateCallback: function (e) { return r(e, t) } })]); case 1: return l.sent(), [2] } })) })) }, e.prototype.resolveContainerElements = function (e) { var t = null, n = null; if (e instanceof HTMLPreElement ? (t = e, n = e.querySelector("code")) : "code" === e.tagName.toLowerCase() && e.parentElement instanceof HTMLPreElement && (t = e.parentElement, n = e), n && t) return [t, n] }, e.prototype.loadStyles = function (e) { var t; return b(this, void 0, void 0, (function () { var n, i, o, s, l; return y(this, (function (a) { switch (a.label) { case 0: for (n = null !== (t = this.highlighterOptions.stylesheets) && void 0 !== t ? t : [], i = [], o = 0, s = n; o < s.length; o++)l = s[o], i.push(d({ href: l.href, id: l.tagId, beforeElementCreateCallback: function (t) { return r(t, e) } })); return [4, Promise.all(i)]; case 1: return a.sent(), [2] } })) })) }, e.prototype.tryApplyLang = function (e) { var t, n, r, i, o, s; if (!e) return ""; var l = Array.from(e.classList), a = null !== (r = null === (n = null === (t = e.parentElement) || void 0 === t ? void 0 : t.tagName) || void 0 === n ? void 0 : n.toLowerCase()) && void 0 !== r ? r : ""; if (l.findIndex((function (e) { return e.startsWith("language-") })) < 0 && "pre" === a) { var u = Array.from(null !== (o = null === (i = e.parentElement) || void 0 === i ? void 0 : i.classList) && void 0 !== o ? o : []).find((function (e) { return e.startsWith("language-") })); u && e.classList.add(u) } return null !== (s = Array.from(e.classList).find((function (e) { return e.startsWith("language-") }))) && void 0 !== s ? s : "" }, e.prototype.setBodyClass = function (e) { var t = ["prismjs-engine", "hljs-engine"], n = window.document.body.classList; switch (n.remove.apply(n, t), e) { case "prismjs": n.add(t[0]); break; case "highlight.js": n.add(t[1]) } }, e.prototype.setEngineClassToken = function (e, t) { for (var n = [g, "highlighter-hljs"], r = t.querySelector("code"), i = 0, o = [null == r ? void 0 : r.classList, t.classList]; i < o.length; i++) { var s = o[i]; switch (null == s || s.remove.apply(s, n), e) { case "prismjs": null == s || s.add(n[0]); break; case "highlight.js": null == s || s.add(n[1]) } } }, e.prototype.removeLinesHighlightedClassToken = function () { for (var e = [], t = 0; t < arguments.length; t++)e[t] = arguments[t]; for (var n = 0, r = e; n < r.length; n++) { var i = r[n].classList; i.remove.apply(i, Array.from(i).filter((function (e) { return e.endsWith("-lines-highlighted") }))) } }, e.prototype.filterCodeContent = function (e) { var t, n; if (!e) return ""; var r = document.createElement("code"); if (r.style.opacity = "0", r.style.width = "0", r.style.height = "0", r.style.whiteSpace = "pre", "code" === e.tagName.toLowerCase()) r.innerHTML = e.innerHTML; else { if ("pre" !== e.tagName.toLowerCase() || !e.querySelector("code")) return ""; r.innerHTML = null !== (n = null === (t = e.querySelector("code")) || void 0 === t ? void 0 : t.innerHTML) && void 0 !== n ? n : "" } var i = r.querySelector(".line-numbers-rows"); i && i.remove(); var o = r.querySelectorAll(".hljs-ln-line.hljs-ln-numbers"); null == o || o.forEach((function (e) { return e.remove() })), document.body.append(r); var s, l, a = r.innerText; return r.remove(), e.innerHTML = (s = a, (l = document.createElement("div")).textContent = s, l.innerHTML), a }, e.prototype.removeLinkElements = function (e) { var t; null === (t = document.querySelectorAll(e)) || void 0 === t || t.forEach((function (e) { return e.remove() })) }, e.prototype.resolveLinesToHighlight = function (e) { var t = e.getAttribute("data-lines-highlight"); try { var n = JSON.parse(null != t ? t : "[]"); return Array.isArray(n) ? n.map((function (e) { return e - 1 })) : [] } catch (e) { return void console.warn(e) } }, e.prototype.setIsDarkTheme = function (e) { this._isDarkTheme = null != e && e }, e }(), w = { tcltk: "tcl", tclsh: "tcl", tk: "tcl", pq: "powerquery", mscript: "powerquery", M: "powerquery", wat: "wasm", wast: "wasm", webassembly: "wasm" }; !function (e) { var t = this, n = function (e) { for (var t = [], n = 1; n < arguments.length; n++)t[n - 1] = arguments[n]; return hljs.getLanguage(e) ? (hljs.registerAliases(t.filter((function (e) { return null == hljs.getLanguage(e) })), { languageName: e }), !0) : (console.warn("Try to register [".concat(t.join(","), "] as aliases of ").concat(e, ", but ").concat(e, " is not defined.")), !1) }; e.load = function (e, r) { return i = t, o = void 0, l = function () { var t, i, o, s, l, a; return function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }(this, (function (u) { switch (u.label) { case 0: if (e = e.toLowerCase().trim().replace("language-", ""), !(t = null !== (a = w[e]) && void 0 !== a ? a : e) || hljs.getLanguage(t)) return n(t, e), [2]; i = r.scriptPath, (o = i.split("/")).pop(), s = o.join("/") + "/languages/".concat(t, ".min.js"), u.label = 1; case 1: return u.trys.push([1, 3, , 4]), [4, p({ id: "hljs-language-".concat(t), src: s })]; case 2: return u.sent(), n(t, e), [3, 4]; case 3: return l = u.sent(), console.warn("加载hljs语言定义脚本失败", l), [3, 4]; case 4: return [2] } })) }, new ((s = void 0) || (s = Promise))((function (e, t) { function n(e) { try { a(l.next(e)) } catch (e) { t(e) } } function r(e) { try { a(l.throw(e)) } catch (e) { t(e) } } function a(t) { var i; t.done ? e(t.value) : (i = t.value, i instanceof s ? i : new s((function (e) { e(i) }))).then(n, r) } a((l = l.apply(i, o || [])).next()) })); var i, o, s, l } }(s || (s = {})); var L, j = (L = function (e, t) { return L = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) { e.__proto__ = t } || function (e, t) { for (var n in t) Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]) }, L(e, t) }, function (e, t) { if ("function" != typeof t && null !== t) throw new TypeError("Class extends value " + String(t) + " is not a constructor or null"); function n() { this.constructor = e } L(e, t), e.prototype = null === t ? Object.create(t) : (n.prototype = t.prototype, new n) }), P = function (e, t, n, r) { return new (n || (n = Promise))((function (i, o) { function s(e) { try { a(r.next(e)) } catch (e) { o(e) } } function l(e) { try { a(r.throw(e)) } catch (e) { o(e) } } function a(e) { var t; e.done ? i(e.value) : (t = e.value, t instanceof n ? t : new n((function (e) { e(t) }))).then(s, l) } a((r = r.apply(e, t || [])).next()) })) }, T = function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }, k = window, C = function (e) { function t() { var t = null !== e && e.apply(this, arguments) || this; return t._linkAttr = { name: "hljs", value: "" }, t } return j(t, e), Object.defineProperty(t.prototype, "highlighterOptions", { get: function () { return this.adapterOptions.hljs }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "id", { get: function () { return "highlight.js" }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "linesHighlightedClassToken", { get: function () { return "hljs-lines-highlighted" }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "enableCodeLineNumber", { get: function () { return this.adapterOptions.enableCodeLineNumber }, enumerable: !1, configurable: !0 }), t.prototype.ensureResourcesLoaded = function () { return P(this, void 0, void 0, (function () { var e; return T(this, (function (t) { switch (t.label) { case 0: return t.trys.push([0, 3, , 4]), [4, this.loadHljs()]; case 1: return t.sent(), [4, this.loadStyles([this._linkAttr])]; case 2: return t.sent(), [3, 4]; case 3: return e = t.sent(), console.error(e), [2]; case 4: return [2] } })) })) }, t.prototype.highlight = function (e) { var t; return P(this, void 0, void 0, (function () { var r, i, o, l, a, u; return T(this, (function (c) { switch (c.label) { case 0: return [4, this.ensureResourcesLoaded()]; case 1: if (c.sent(), r = this.enableCodeLineNumber, i = null !== (t = this.resolveContainerElements(e)) && void 0 !== t ? t : [], o = i[0], l = i[1], !o || !l) return [2]; o.classList.remove(g), c.label = 2; case 2: return c.trys.push([2, 5, , 6]), r ? [4, this.loadLineNumberPlugin()] : [3, 4]; case 3: c.sent(), c.label = 4; case 4: return [3, 6]; case 5: return a = c.sent(), console.error(a), [3, 6]; case 6: return this.setBodyClass("highlight.js"), this.setEngineClassToken(this.id, o), this.removeLinesHighlightedClassToken(o, l), e.classList.remove("hljs-line-numbers"), u = this.tryApplyLang(e), this.filterCodeContent(e), n(e), [4, s.load(u, this.highlighterOptions)]; case 7: return c.sent(), hljs.highlightElement(e), r && (hljs.lineNumbersValue ? (e.innerHTML = hljs.lineNumbersValue(e.innerHTML, { singleLine: !0 }), e.classList.add("hljs-line-numbers")) : console.error("failed to load hljs line numbers plugin!")), this.highlightLines(o), l.classList.add("hljs"), this.isDarkTheme ? e.setAttribute("data-dark-theme", "true") : e.removeAttribute("data-dark-theme"), [2] } })) })) }, t.prototype.highlightLines = function (e) { var t = e.querySelector("code"); if (!t) return []; var n = this.resolveLinesToHighlight(t); if (null == n || n.length <= 0) return []; var r = t.innerHTML; if (!1 === this.adapterOptions.enableCodeLineNumber) { for (var i = r.split("\n"), o = 0, s = n; o < s.length; o++)if (!((c = s[o]) < 0 || c >= i.length)) { var l = i[c]; null != l && (i[c] = '<span class="'.concat(m, '">').concat(l, "</span>")) } t.innerHTML = '<span class="hljs-lines-highlight-wrapper">'.concat(i.join("\n"), "</span>") } else { i = Array.from(t.querySelectorAll("tr")); for (var a = 0, u = n; a < u.length; a++) { var c; if (!((c = u[a]) < 0 || c >= i.length)) { var h = i[c]; h && h.classList.add(m) } } } return e.classList.add(this.linesHighlightedClassToken), null != n ? n : [] }, t.prototype.loadHljs = function () { return P(this, void 0, void 0, (function () { var e; return T(this, (function (t) { switch (t.label) { case 0: return e = this.adapterOptions.hljs.scriptPath, k.hljs ? [3, 2] : [4, p({ id: "hljs-script", src: e })]; case 1: t.sent(), t.label = 2; case 2: return [2] } })) })) }, t.prototype.loadLineNumberPlugin = function () { return P(this, void 0, void 0, (function () { var e; return T(this, (function (t) { switch (t.label) { case 0: return e = this.adapterOptions.hljs.lineNumberPluginPath, [4, p({ id: "hljs-line-numbers", src: e })]; case 1: return t.sent(), [2] } })) })) }, t }(v), S = function () { var e = function (t, n) { return e = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) { e.__proto__ = t } || function (e, t) { for (var n in t) Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]) }, e(t, n) }; return function (t, n) { if ("function" != typeof n && null !== n) throw new TypeError("Class extends value " + String(n) + " is not a constructor or null"); function r() { this.constructor = t } e(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r) } }(), O = function (e, t, n, r) { return new (n || (n = Promise))((function (i, o) { function s(e) { try { a(r.next(e)) } catch (e) { o(e) } } function l(e) { try { a(r.throw(e)) } catch (e) { o(e) } } function a(e) { var t; e.done ? i(e.value) : (t = e.value, t instanceof n ? t : new n((function (e) { e(t) }))).then(s, l) } a((r = r.apply(e, t || [])).next()) })) }, E = function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }, H = window, N = function (e) { function t() { var t = null !== e && e.apply(this, arguments) || this; return t._linkAttr = { name: "prismjs", value: "" }, t } return S(t, e), Object.defineProperty(t.prototype, "highlighterOptions", { get: function () { return this.adapterOptions.prism }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "id", { get: function () { return "prismjs" }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "enableCodeLineNumber", { get: function () { return this.adapterOptions.enableCodeLineNumber }, enumerable: !1, configurable: !0 }), t.prototype.highlight = function (e) { var t; return O(this, void 0, void 0, (function () { var r, i, o; return E(this, (function (s) { switch (s.label) { case 0: return [4, this.ensureResourcesLoaded()]; case 1: return s.sent(), r = null !== (t = this.resolveContainerElements(e)) && void 0 !== t ? t : [], i = r[0], o = r[1], i && o ? (this.adapterOptions.enableCodeLineNumber ? i.classList.add("line-numbers") : (i.classList.remove("line-numbers"), o.classList.remove("line-numbers")), this.tryApplyLang(o), this.setBodyClass("prismjs"), this.setEngineClassToken(this.id, i), this.removeLinesHighlightedClassToken(i), this.filterCodeContent(o), n(o), Prism.highlightElement(o, !1), this.highlightLines(i), [2]) : [2] } })) })) }, t.prototype.highlightLines = function (e) { var t, n, r = e.querySelector("code"), i = this.resolveLinesToHighlight(r) || this.resolveLinesToHighlight(e); if (!i) return []; var o = r.innerHTML, s = null !== (n = null === (t = r.querySelector(".line-numbers-rows")) || void 0 === t ? void 0 : t.outerHTML) && void 0 !== n ? n : ""; s && (o = o.replace(s, "")); var l = o.split("\n"); return i.forEach((function (e) { if (!(e < 0 || e >= l.length)) { var t = l[e]; l[e] = '<span class="'.concat(m, '">').concat(t, "</span>") } })), r.innerHTML = l.join("\n") + s, e.classList.add(this.linesHighlightedClassToken), i }, t.prototype.ensureResourcesLoaded = function () { return O(this, void 0, void 0, (function () { var e; return E(this, (function (t) { switch (t.label) { case 0: return t.trys.push([0, 4, , 5]), [4, this.loadPrismAsync()]; case 1: return t.sent(), [4, Promise.all([this.loadPrismAutoLoader(), this.loadPrismLineNumberPluginScript()])]; case 2: return t.sent(), [4, this.loadStyles([this._linkAttr])]; case 3: return t.sent(), [3, 5]; case 4: return e = t.sent(), console.error(e), [2]; case 5: return [2] } })) })) }, t.prototype.setTheme = function (t, n, r) { return O(this, void 0, void 0, (function () { return E(this, (function (i) { switch (i.label) { case 0: return [4, e.prototype.setTheme.call(this, t, n, r)]; case 1: return i.sent(), [4, this.loadPrismLineNumberPluginStyle()]; case 2: return i.sent(), [2] } })) })) }, t.prototype.loadPrismAsync = function () { return O(this, void 0, void 0, (function () { var e; return E(this, (function (t) { switch (t.label) { case 0: return H.Prism = H.Prism || {}, Prism.manual = !0, e = this.adapterOptions.prism.scriptPath, [4, p({ id: "prismjs-script", src: e })]; case 1: return t.sent(), [2] } })) })) }, t.prototype.loadPrismAutoLoader = function () { var e; return O(this, void 0, void 0, (function () { var t, n; return E(this, (function (r) { switch (r.label) { case 0: return t = !!(null === (e = H.Prism.plugins) || void 0 === e ? void 0 : e.autoloader), n = this.adapterOptions.prism.autoLoaderPluginPath, t ? [3, 2] : [4, p({ id: "prismjs-autoloader-script", src: n })]; case 1: r.sent(), r.label = 2; case 2: return [2] } })) })) }, t.prototype.loadPrismLineNumberPluginScript = function () { return O(this, void 0, void 0, (function () { return E(this, (function (e) { switch (e.label) { case 0: if (!this.enableCodeLineNumber) return [2]; if (!this.adapterOptions.prism.lineNumberPluginPath) throw Error("lineNumberPluginPath not configured"); return [4, p({ id: "prism-line-numbers-script", src: this.adapterOptions.prism.lineNumberPluginPath })]; case 1: return e.sent(), [2] } })) })) }, t.prototype.loadPrismLineNumberPluginStyle = function () { return O(this, void 0, void 0, (function () { return E(this, (function (e) { if (!this.enableCodeLineNumber) return [2]; if (!this.adapterOptions.prism.lineNumberStylePath) throw Error("lineNumberStylePath not configured"); return d({ id: "prism-line-numbers-style", href: this.adapterOptions.prism.lineNumberStylePath, beforeElementCreateCallback: function (e) { return r(e, [{ name: "prismjs", value: "" }]) } }).then(), [2] })) })) }, t }(v); function A() { const e = "highlightedLineBackground"; if (!document.querySelector(`#${e}`)) { const t = document.createElement("style"); t.id = e, t.innerHTML = ":root { --highlighted-line-bg: var(--vscode-diffEditor-insertedTextBackground) }", document.head.append(t) } const t = new C; document.querySelectorAll('pre[class*="language-"][data-lines-highlight]').forEach((e => { const n = e.querySelector("code"); n && (n.firstChild instanceof HTMLDivElement && 1 === n.children.length && (n.firstChild.outerHTML = n.firstChild.innerHTML), t.highlightLines(e)) })) } (function () { function e() { } return e.configCodeHighlightOptions = function (e) { t.set(e) }, e.useCnblogsCodeHighlightOptions = function () { this.configCodeHighlightOptions(o) }, e.createCodeHighlighter = function (e, t, n) { var r; switch (n && this.configCodeHighlightOptions(n), e) { case "highlight.js": r = new C; break; case "prismjs": r = new N; break; default: throw Error("unknown highlight engine") }t || (t = r.highlighterOptions.defaultTheme); var i = "string" == typeof t ? t : t.name, o = "string" != typeof t && t.isDark; return r.setTheme(i, void 0, o).then(), r }, e })().configCodeHighlightOptions({ enableCodeLineNumber: !1 }), window.addEventListener("vscode.markdown.updateContent", A), A(), module.exports = e })();
+        </script>
+        <script async="" src="./Visual Studio Code (VS Code) – C++ 入门_files/katex-copytex.min.js.download"></script>
+        <script async="" type="text/javascript">
+            /* From extension cnblogs.vscode-cnb */
+            (() => { "use strict"; var e = {}; (e => { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) })(e); var t, n = function (e) { for (var t, n = 0, r = null !== (t = Array.from(e.classList).filter((function (e) { return e.toLowerCase().endsWith("sql") }))) && void 0 !== t ? t : []; n < r.length; n++) { var i = r[n]; e.classList.remove(i), e.classList.add("language-sql") } }, r = function (e, t) { null == t || t.forEach((function (t) { return e.setAttribute(t.name, t.value) })) }, i = { enableCodeLineNumber: !0, prism: { scriptPath: "/prism.min.js", autoLoaderPluginPath: "", lineNumberPluginPath: "", stylesheets: [], themeBaseUrl: "", defaultTheme: "" }, hljs: { scriptPath: "/highlight.min.js", lineNumberPluginPath: "/highlightjs-line-numbers.min.js", stylesheets: [], themeBaseUrl: "", defaultTheme: "" } }, o = { enableCodeLineNumber: !1, prism: { scriptPath: "https://common.cnblogs.com/prism/prism.js?v=1.23.0", lineNumberPluginPath: "https://common.cnblogs.com/prism/plugins/line-numbers/prism-line-numbers.min.js", autoLoaderPluginPath: "https://common.cnblogs.com/prism/plugins/autoloader/prism-autoloader.min.js", lineNumberStylePath: "https://common.cnblogs.com/prism/plugins/line-numbers/prism-line-numbers.css", themeBaseUrl: "https://www.cnblogs.com/css/prismjs", defaultTheme: "prism-vs", stylesheets: [] }, hljs: { scriptPath: "https://common.cnblogs.com/highlight/11.4.0/highlight.min.js", lineNumberPluginPath: "https://common.cnblogs.com/scripts/highlightjs-line-numbers.min.js", stylesheets: [], themeBaseUrl: "https://www.cnblogs.com/css/hljs", defaultTheme: "cnblogs" } }; !function (e) { var t = Object.assign({}, i); e.set = function (e) { Object.assign(t, e) }, e.get = function () { return t } }(t || (t = {})); var s, l = [], a = function (e) { e && clearTimeout(e) }, u = function (e, t) { var n = l.findIndex((function (n) { return e && n[0] === e || n[0] === t })); n >= 0 && l.splice(n, 1) }, c = function (e) { var t, n, r = e.url, i = e.id, o = e.timeoutSeconds, s = e.appendTo, c = e.hostElementTagName, h = e.beforeElementCreateCallback, f = s ? s.ownerDocument : document, p = null !== (n = null !== (t = f.defaultView) && void 0 !== t ? t : f.parentWindow) && void 0 !== n ? n : window, d = function (e, t) { var n = l.find((function (n) { return e && n[0] === e || n[0] === t })); return (null != n ? n : [])[1] }(f !== document ? "load-resource-to-another-window-context-" + p.name + "-" + i : i, r); if (d) return d; var m = f.querySelector("".concat(c, "#").concat(i)); return (m = (m = m || "script" === c && f.querySelector('script[src="'.concat(r, '"]'))) || "link" === c && f.querySelector('link[href="'.concat(r, '"]'))) ? Promise.resolve(m) : (d = new Promise((function (e, t) { var n, l; n = c, l = function (n) { var l; n.id = null != i ? i : "", null != s || (s = f.head), o = o <= 0 ? 5 : o, n instanceof HTMLLinkElement ? (n.href = r, n.rel = "stylesheet", n.type = "text/css") : n instanceof HTMLScriptElement && (n.src = r, n.type = "text/javascript", n.defer = !0), n.onload = function () { a(l), u(i, r), e(n) }, n.onerror = function (e) { a(l), n.remove(), u(i, r), t(e) }, null == h || h.call(void 0, n), s.append(n), l = setTimeout((function () { a(l), n.remove(), u(i, r), t("timeout after ".concat(o, " seconds")) }), 1e3 * o) }, l(document.createElement(n)) })), l.push([i || r, d]), d) }, h = {}, f = function () { return h }, p = function (e) { var t, n = e.src, r = e.id, i = e.timeoutSeconds, o = e.appendTo, s = e.executionStrategy; return c({ url: n, hostElementTagName: "script", timeoutSeconds: null !== (t = null != i ? i : f().timeoutSeconds) && void 0 !== t ? t : 5, id: r, appendTo: null != o ? o : f().appendTo, beforeElementCreateCallback: function (e) { e instanceof HTMLScriptElement && ("async" === (null != s ? s : f().executionStrategy) ? (e.async = !0, e.defer = !1) : (e.defer = !0, e.async = !1)) } }) }, d = function (e) { var t, n = e.href, r = e.timeoutSeconds, i = e.id, o = e.appendTo; return c({ url: n, hostElementTagName: "link", timeoutSeconds: null !== (t = null != r ? r : f().timeoutSeconds) && void 0 !== t ? t : 5, id: i, appendTo: null != o ? o : f().appendTo }) }, m = "highlighted-line", g = "highlighter-prismjs", b = function (e, t, n, r) { return new (n || (n = Promise))((function (i, o) { function s(e) { try { a(r.next(e)) } catch (e) { o(e) } } function l(e) { try { a(r.throw(e)) } catch (e) { o(e) } } function a(e) { var t; e.done ? i(e.value) : (t = e.value, t instanceof n ? t : new n((function (e) { e(t) }))).then(s, l) } a((r = r.apply(e, t || [])).next()) })) }, y = function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }, v = function () { function e() { this._isDarkTheme = !1, this.removeLinkElements("link[rel=stylesheet][prismjs]"), this.removeLinkElements("link[rel=stylesheet][hljs]") } return Object.defineProperty(e.prototype, "enableCodeLineNumber", { get: function () { return !1 }, enumerable: !1, configurable: !0 }), Object.defineProperty(e.prototype, "adapterOptions", { get: function () { return t.get() }, enumerable: !1, configurable: !0 }), Object.defineProperty(e.prototype, "isDarkTheme", { get: function () { return this._isDarkTheme }, enumerable: !1, configurable: !0 }), Object.defineProperty(e.prototype, "linesHighlightedClassToken", { get: function () { return this.id + "-lines-highlighted" }, enumerable: !1, configurable: !0 }), e.prototype.highlightAllUnder = function (e, t, n) { return b(this, void 0, void 0, (function () { var r, i, o, s, l, a, u, c = this; return y(this, (function (h) { switch (h.label) { case 0: return (r = "string" == typeof e ? document.querySelector(e) : e) ? (i = Array.from(r.querySelectorAll("pre code")).map((function (e) { return e }))).length > 0 ? [4, this.ensureResourcesLoaded()] : [3, 2] : [2]; case 1: h.sent(), h.label = 2; case 2: for (o = [], s = function (e) { var r = e.parentElement, i = e; if (t && !t(r, i)) return "continue"; o.push(new Promise((function (e, t) { c.highlight(i).then((function () { n && n(r, i), e() }), (function () { return t() })) }))) }, l = 0, a = i; l < a.length; l++)u = a[l], s(u); return [4, Promise.all(o)]; case 3: return h.sent(), [2] } })) })) }, e.prototype.setTheme = function (e, t, n) { var i; return b(this, void 0, void 0, (function () { var o, s; return y(this, (function (l) { switch (l.label) { case 0: if (this.setIsDarkTheme(n), !e && !this.highlighterOptions.defaultTheme) throw Error("Theme is required! And default theme not configured!"); return e || (e = this.highlighterOptions.defaultTheme), o = "highlighter-theme-".concat(e), s = !1, null === (i = document.querySelectorAll("link[id*=highlighter-theme-],link[id*=line-numbers-style]")) || void 0 === i || i.forEach((function (e) { e.id !== o ? e.remove() : s = !0 })), s ? [2] : (this._themeHref = "".concat(this.highlighterOptions.themeBaseUrl, "/").concat(e, ".css"), [4, d({ href: this._themeHref, id: o, beforeElementCreateCallback: function (e) { return r(e, t) } })]); case 1: return l.sent(), [2] } })) })) }, e.prototype.resolveContainerElements = function (e) { var t = null, n = null; if (e instanceof HTMLPreElement ? (t = e, n = e.querySelector("code")) : "code" === e.tagName.toLowerCase() && e.parentElement instanceof HTMLPreElement && (t = e.parentElement, n = e), n && t) return [t, n] }, e.prototype.loadStyles = function (e) { var t; return b(this, void 0, void 0, (function () { var n, i, o, s, l; return y(this, (function (a) { switch (a.label) { case 0: for (n = null !== (t = this.highlighterOptions.stylesheets) && void 0 !== t ? t : [], i = [], o = 0, s = n; o < s.length; o++)l = s[o], i.push(d({ href: l.href, id: l.tagId, beforeElementCreateCallback: function (t) { return r(t, e) } })); return [4, Promise.all(i)]; case 1: return a.sent(), [2] } })) })) }, e.prototype.tryApplyLang = function (e) { var t, n, r, i, o, s; if (!e) return ""; var l = Array.from(e.classList), a = null !== (r = null === (n = null === (t = e.parentElement) || void 0 === t ? void 0 : t.tagName) || void 0 === n ? void 0 : n.toLowerCase()) && void 0 !== r ? r : ""; if (l.findIndex((function (e) { return e.startsWith("language-") })) < 0 && "pre" === a) { var u = Array.from(null !== (o = null === (i = e.parentElement) || void 0 === i ? void 0 : i.classList) && void 0 !== o ? o : []).find((function (e) { return e.startsWith("language-") })); u && e.classList.add(u) } return null !== (s = Array.from(e.classList).find((function (e) { return e.startsWith("language-") }))) && void 0 !== s ? s : "" }, e.prototype.setBodyClass = function (e) { var t = ["prismjs-engine", "hljs-engine"], n = window.document.body.classList; switch (n.remove.apply(n, t), e) { case "prismjs": n.add(t[0]); break; case "highlight.js": n.add(t[1]) } }, e.prototype.setEngineClassToken = function (e, t) { for (var n = [g, "highlighter-hljs"], r = t.querySelector("code"), i = 0, o = [null == r ? void 0 : r.classList, t.classList]; i < o.length; i++) { var s = o[i]; switch (null == s || s.remove.apply(s, n), e) { case "prismjs": null == s || s.add(n[0]); break; case "highlight.js": null == s || s.add(n[1]) } } }, e.prototype.removeLinesHighlightedClassToken = function () { for (var e = [], t = 0; t < arguments.length; t++)e[t] = arguments[t]; for (var n = 0, r = e; n < r.length; n++) { var i = r[n].classList; i.remove.apply(i, Array.from(i).filter((function (e) { return e.endsWith("-lines-highlighted") }))) } }, e.prototype.filterCodeContent = function (e) { var t, n; if (!e) return ""; var r = document.createElement("code"); if (r.style.opacity = "0", r.style.width = "0", r.style.height = "0", r.style.whiteSpace = "pre", "code" === e.tagName.toLowerCase()) r.innerHTML = e.innerHTML; else { if ("pre" !== e.tagName.toLowerCase() || !e.querySelector("code")) return ""; r.innerHTML = null !== (n = null === (t = e.querySelector("code")) || void 0 === t ? void 0 : t.innerHTML) && void 0 !== n ? n : "" } var i = r.querySelector(".line-numbers-rows"); i && i.remove(); var o = r.querySelectorAll(".hljs-ln-line.hljs-ln-numbers"); null == o || o.forEach((function (e) { return e.remove() })), document.body.append(r); var s, l, a = r.innerText; return r.remove(), e.innerHTML = (s = a, (l = document.createElement("div")).textContent = s, l.innerHTML), a }, e.prototype.removeLinkElements = function (e) { var t; null === (t = document.querySelectorAll(e)) || void 0 === t || t.forEach((function (e) { return e.remove() })) }, e.prototype.resolveLinesToHighlight = function (e) { var t = e.getAttribute("data-lines-highlight"); try { var n = JSON.parse(null != t ? t : "[]"); return Array.isArray(n) ? n.map((function (e) { return e - 1 })) : [] } catch (e) { return void console.warn(e) } }, e.prototype.setIsDarkTheme = function (e) { this._isDarkTheme = null != e && e }, e }(), w = { tcltk: "tcl", tclsh: "tcl", tk: "tcl", pq: "powerquery", mscript: "powerquery", M: "powerquery", wat: "wasm", wast: "wasm", webassembly: "wasm" }; !function (e) { var t = this, n = function (e) { for (var t = [], n = 1; n < arguments.length; n++)t[n - 1] = arguments[n]; return hljs.getLanguage(e) ? (hljs.registerAliases(t.filter((function (e) { return null == hljs.getLanguage(e) })), { languageName: e }), !0) : (console.warn("Try to register [".concat(t.join(","), "] as aliases of ").concat(e, ", but ").concat(e, " is not defined.")), !1) }; e.load = function (e, r) { return i = t, o = void 0, l = function () { var t, i, o, s, l, a; return function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }(this, (function (u) { switch (u.label) { case 0: if (e = e.toLowerCase().trim().replace("language-", ""), !(t = null !== (a = w[e]) && void 0 !== a ? a : e) || hljs.getLanguage(t)) return n(t, e), [2]; i = r.scriptPath, (o = i.split("/")).pop(), s = o.join("/") + "/languages/".concat(t, ".min.js"), u.label = 1; case 1: return u.trys.push([1, 3, , 4]), [4, p({ id: "hljs-language-".concat(t), src: s })]; case 2: return u.sent(), n(t, e), [3, 4]; case 3: return l = u.sent(), console.warn("加载hljs语言定义脚本失败", l), [3, 4]; case 4: return [2] } })) }, new ((s = void 0) || (s = Promise))((function (e, t) { function n(e) { try { a(l.next(e)) } catch (e) { t(e) } } function r(e) { try { a(l.throw(e)) } catch (e) { t(e) } } function a(t) { var i; t.done ? e(t.value) : (i = t.value, i instanceof s ? i : new s((function (e) { e(i) }))).then(n, r) } a((l = l.apply(i, o || [])).next()) })); var i, o, s, l } }(s || (s = {})); var L, j = (L = function (e, t) { return L = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) { e.__proto__ = t } || function (e, t) { for (var n in t) Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]) }, L(e, t) }, function (e, t) { if ("function" != typeof t && null !== t) throw new TypeError("Class extends value " + String(t) + " is not a constructor or null"); function n() { this.constructor = e } L(e, t), e.prototype = null === t ? Object.create(t) : (n.prototype = t.prototype, new n) }), P = function (e, t, n, r) { return new (n || (n = Promise))((function (i, o) { function s(e) { try { a(r.next(e)) } catch (e) { o(e) } } function l(e) { try { a(r.throw(e)) } catch (e) { o(e) } } function a(e) { var t; e.done ? i(e.value) : (t = e.value, t instanceof n ? t : new n((function (e) { e(t) }))).then(s, l) } a((r = r.apply(e, t || [])).next()) })) }, T = function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }, k = window, C = function (e) { function t() { var t = null !== e && e.apply(this, arguments) || this; return t._linkAttr = { name: "hljs", value: "" }, t } return j(t, e), Object.defineProperty(t.prototype, "highlighterOptions", { get: function () { return this.adapterOptions.hljs }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "id", { get: function () { return "highlight.js" }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "linesHighlightedClassToken", { get: function () { return "hljs-lines-highlighted" }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "enableCodeLineNumber", { get: function () { return this.adapterOptions.enableCodeLineNumber }, enumerable: !1, configurable: !0 }), t.prototype.ensureResourcesLoaded = function () { return P(this, void 0, void 0, (function () { var e; return T(this, (function (t) { switch (t.label) { case 0: return t.trys.push([0, 3, , 4]), [4, this.loadHljs()]; case 1: return t.sent(), [4, this.loadStyles([this._linkAttr])]; case 2: return t.sent(), [3, 4]; case 3: return e = t.sent(), console.error(e), [2]; case 4: return [2] } })) })) }, t.prototype.highlight = function (e) { var t; return P(this, void 0, void 0, (function () { var r, i, o, l, a, u; return T(this, (function (c) { switch (c.label) { case 0: return [4, this.ensureResourcesLoaded()]; case 1: if (c.sent(), r = this.enableCodeLineNumber, i = null !== (t = this.resolveContainerElements(e)) && void 0 !== t ? t : [], o = i[0], l = i[1], !o || !l) return [2]; o.classList.remove(g), c.label = 2; case 2: return c.trys.push([2, 5, , 6]), r ? [4, this.loadLineNumberPlugin()] : [3, 4]; case 3: c.sent(), c.label = 4; case 4: return [3, 6]; case 5: return a = c.sent(), console.error(a), [3, 6]; case 6: return this.setBodyClass("highlight.js"), this.setEngineClassToken(this.id, o), this.removeLinesHighlightedClassToken(o, l), e.classList.remove("hljs-line-numbers"), u = this.tryApplyLang(e), this.filterCodeContent(e), n(e), [4, s.load(u, this.highlighterOptions)]; case 7: return c.sent(), hljs.highlightElement(e), r && (hljs.lineNumbersValue ? (e.innerHTML = hljs.lineNumbersValue(e.innerHTML, { singleLine: !0 }), e.classList.add("hljs-line-numbers")) : console.error("failed to load hljs line numbers plugin!")), this.highlightLines(o), l.classList.add("hljs"), this.isDarkTheme ? e.setAttribute("data-dark-theme", "true") : e.removeAttribute("data-dark-theme"), [2] } })) })) }, t.prototype.highlightLines = function (e) { var t = e.querySelector("code"); if (!t) return []; var n = this.resolveLinesToHighlight(t); if (null == n || n.length <= 0) return []; var r = t.innerHTML; if (!1 === this.adapterOptions.enableCodeLineNumber) { for (var i = r.split("\n"), o = 0, s = n; o < s.length; o++)if (!((c = s[o]) < 0 || c >= i.length)) { var l = i[c]; null != l && (i[c] = '<span class="'.concat(m, '">').concat(l, "</span>")) } t.innerHTML = '<span class="hljs-lines-highlight-wrapper">'.concat(i.join("\n"), "</span>") } else { i = Array.from(t.querySelectorAll("tr")); for (var a = 0, u = n; a < u.length; a++) { var c; if (!((c = u[a]) < 0 || c >= i.length)) { var h = i[c]; h && h.classList.add(m) } } } return e.classList.add(this.linesHighlightedClassToken), null != n ? n : [] }, t.prototype.loadHljs = function () { return P(this, void 0, void 0, (function () { var e; return T(this, (function (t) { switch (t.label) { case 0: return e = this.adapterOptions.hljs.scriptPath, k.hljs ? [3, 2] : [4, p({ id: "hljs-script", src: e })]; case 1: t.sent(), t.label = 2; case 2: return [2] } })) })) }, t.prototype.loadLineNumberPlugin = function () { return P(this, void 0, void 0, (function () { var e; return T(this, (function (t) { switch (t.label) { case 0: return e = this.adapterOptions.hljs.lineNumberPluginPath, [4, p({ id: "hljs-line-numbers", src: e })]; case 1: return t.sent(), [2] } })) })) }, t }(v), S = function () { var e = function (t, n) { return e = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) { e.__proto__ = t } || function (e, t) { for (var n in t) Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]) }, e(t, n) }; return function (t, n) { if ("function" != typeof n && null !== n) throw new TypeError("Class extends value " + String(n) + " is not a constructor or null"); function r() { this.constructor = t } e(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r) } }(), O = function (e, t, n, r) { return new (n || (n = Promise))((function (i, o) { function s(e) { try { a(r.next(e)) } catch (e) { o(e) } } function l(e) { try { a(r.throw(e)) } catch (e) { o(e) } } function a(e) { var t; e.done ? i(e.value) : (t = e.value, t instanceof n ? t : new n((function (e) { e(t) }))).then(s, l) } a((r = r.apply(e, t || [])).next()) })) }, E = function (e, t) { var n, r, i, o, s = { label: 0, sent: function () { if (1 & i[0]) throw i[1]; return i[1] }, trys: [], ops: [] }; return o = { next: l(0), throw: l(1), return: l(2) }, "function" == typeof Symbol && (o[Symbol.iterator] = function () { return this }), o; function l(o) { return function (l) { return function (o) { if (n) throw new TypeError("Generator is already executing."); for (; s;)try { if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i; switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) { case 0: case 1: i = o; break; case 4: return s.label++, { value: o[1], done: !1 }; case 5: s.label++, r = o[1], o = [0]; continue; case 7: o = s.ops.pop(), s.trys.pop(); continue; default: if (!((i = (i = s.trys).length > 0 && i[i.length - 1]) || 6 !== o[0] && 2 !== o[0])) { s = 0; continue } if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) { s.label = o[1]; break } if (6 === o[0] && s.label < i[1]) { s.label = i[1], i = o; break } if (i && s.label < i[2]) { s.label = i[2], s.ops.push(o); break } i[2] && s.ops.pop(), s.trys.pop(); continue }o = t.call(e, s) } catch (e) { o = [6, e], r = 0 } finally { n = i = 0 } if (5 & o[0]) throw o[1]; return { value: o[0] ? o[1] : void 0, done: !0 } }([o, l]) } } }, H = window, N = function (e) { function t() { var t = null !== e && e.apply(this, arguments) || this; return t._linkAttr = { name: "prismjs", value: "" }, t } return S(t, e), Object.defineProperty(t.prototype, "highlighterOptions", { get: function () { return this.adapterOptions.prism }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "id", { get: function () { return "prismjs" }, enumerable: !1, configurable: !0 }), Object.defineProperty(t.prototype, "enableCodeLineNumber", { get: function () { return this.adapterOptions.enableCodeLineNumber }, enumerable: !1, configurable: !0 }), t.prototype.highlight = function (e) { var t; return O(this, void 0, void 0, (function () { var r, i, o; return E(this, (function (s) { switch (s.label) { case 0: return [4, this.ensureResourcesLoaded()]; case 1: return s.sent(), r = null !== (t = this.resolveContainerElements(e)) && void 0 !== t ? t : [], i = r[0], o = r[1], i && o ? (this.adapterOptions.enableCodeLineNumber ? i.classList.add("line-numbers") : (i.classList.remove("line-numbers"), o.classList.remove("line-numbers")), this.tryApplyLang(o), this.setBodyClass("prismjs"), this.setEngineClassToken(this.id, i), this.removeLinesHighlightedClassToken(i), this.filterCodeContent(o), n(o), Prism.highlightElement(o, !1), this.highlightLines(i), [2]) : [2] } })) })) }, t.prototype.highlightLines = function (e) { var t, n, r = e.querySelector("code"), i = this.resolveLinesToHighlight(r) || this.resolveLinesToHighlight(e); if (!i) return []; var o = r.innerHTML, s = null !== (n = null === (t = r.querySelector(".line-numbers-rows")) || void 0 === t ? void 0 : t.outerHTML) && void 0 !== n ? n : ""; s && (o = o.replace(s, "")); var l = o.split("\n"); return i.forEach((function (e) { if (!(e < 0 || e >= l.length)) { var t = l[e]; l[e] = '<span class="'.concat(m, '">').concat(t, "</span>") } })), r.innerHTML = l.join("\n") + s, e.classList.add(this.linesHighlightedClassToken), i }, t.prototype.ensureResourcesLoaded = function () { return O(this, void 0, void 0, (function () { var e; return E(this, (function (t) { switch (t.label) { case 0: return t.trys.push([0, 4, , 5]), [4, this.loadPrismAsync()]; case 1: return t.sent(), [4, Promise.all([this.loadPrismAutoLoader(), this.loadPrismLineNumberPluginScript()])]; case 2: return t.sent(), [4, this.loadStyles([this._linkAttr])]; case 3: return t.sent(), [3, 5]; case 4: return e = t.sent(), console.error(e), [2]; case 5: return [2] } })) })) }, t.prototype.setTheme = function (t, n, r) { return O(this, void 0, void 0, (function () { return E(this, (function (i) { switch (i.label) { case 0: return [4, e.prototype.setTheme.call(this, t, n, r)]; case 1: return i.sent(), [4, this.loadPrismLineNumberPluginStyle()]; case 2: return i.sent(), [2] } })) })) }, t.prototype.loadPrismAsync = function () { return O(this, void 0, void 0, (function () { var e; return E(this, (function (t) { switch (t.label) { case 0: return H.Prism = H.Prism || {}, Prism.manual = !0, e = this.adapterOptions.prism.scriptPath, [4, p({ id: "prismjs-script", src: e })]; case 1: return t.sent(), [2] } })) })) }, t.prototype.loadPrismAutoLoader = function () { var e; return O(this, void 0, void 0, (function () { var t, n; return E(this, (function (r) { switch (r.label) { case 0: return t = !!(null === (e = H.Prism.plugins) || void 0 === e ? void 0 : e.autoloader), n = this.adapterOptions.prism.autoLoaderPluginPath, t ? [3, 2] : [4, p({ id: "prismjs-autoloader-script", src: n })]; case 1: r.sent(), r.label = 2; case 2: return [2] } })) })) }, t.prototype.loadPrismLineNumberPluginScript = function () { return O(this, void 0, void 0, (function () { return E(this, (function (e) { switch (e.label) { case 0: if (!this.enableCodeLineNumber) return [2]; if (!this.adapterOptions.prism.lineNumberPluginPath) throw Error("lineNumberPluginPath not configured"); return [4, p({ id: "prism-line-numbers-script", src: this.adapterOptions.prism.lineNumberPluginPath })]; case 1: return e.sent(), [2] } })) })) }, t.prototype.loadPrismLineNumberPluginStyle = function () { return O(this, void 0, void 0, (function () { return E(this, (function (e) { if (!this.enableCodeLineNumber) return [2]; if (!this.adapterOptions.prism.lineNumberStylePath) throw Error("lineNumberStylePath not configured"); return d({ id: "prism-line-numbers-style", href: this.adapterOptions.prism.lineNumberStylePath, beforeElementCreateCallback: function (e) { return r(e, [{ name: "prismjs", value: "" }]) } }).then(), [2] })) })) }, t }(v); function A() { const e = "highlightedLineBackground"; if (!document.querySelector(`#${e}`)) { const t = document.createElement("style"); t.id = e, t.innerHTML = ":root { --highlighted-line-bg: var(--vscode-diffEditor-insertedTextBackground) }", document.head.append(t) } const t = new C; document.querySelectorAll('pre[class*="language-"][data-lines-highlight]').forEach((e => { const n = e.querySelector("code"); n && (n.firstChild instanceof HTMLDivElement && 1 === n.children.length && (n.firstChild.outerHTML = n.firstChild.innerHTML), t.highlightLines(e)) })) } (function () { function e() { } return e.configCodeHighlightOptions = function (e) { t.set(e) }, e.useCnblogsCodeHighlightOptions = function () { this.configCodeHighlightOptions(o) }, e.createCodeHighlighter = function (e, t, n) { var r; switch (n && this.configCodeHighlightOptions(n), e) { case "highlight.js": r = new C; break; case "prismjs": r = new N; break; default: throw Error("unknown highlight engine") }t || (t = r.highlighterOptions.defaultTheme); var i = "string" == typeof t ? t : t.name, o = "string" != typeof t && t.isDark; return r.setTheme(i, void 0, o).then(), r }, e })().configCodeHighlightOptions({ enableCodeLineNumber: !1 }), window.addEventListener("vscode.markdown.updateContent", A), A(), module.exports = e })();
+        </script>
+
+
+
+    </div>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12 col-12">
+                    <div class="copyright-text-wrap">
+                        <p class="mb-0">
+                            <span class="copyright-text">Copyright © 2023 <a href="https://xi-xu-zg.github.io/">Xi
+                                    Xu</a> All rights
+                                reserved.</span>
+
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/jquery.min.js.download"></script>
+    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/bootstrap.min.js.download"></script>
+    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/jquery.sticky.js.download"></script>
+    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/click-scroll.js.download"></script>
+    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/jquery.magnific-popup.min.js.download"></script>
+    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/magnific-popup-options.js.download"></script>
+    <script src="./Visual Studio Code (VS Code) – C++ 入门_files/custom.js.download"></script>
+
+</body>
+
+</html>
